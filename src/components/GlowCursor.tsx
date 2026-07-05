@@ -28,7 +28,7 @@ export default function GlowCursor() {
 
   return isVisible ? (
     <div
-      className="pointer-events-none fixed top-0 left-0 h-8 w-8 rounded-full bg-white blur-lg transition-transform duration-75 ease-out"
+      className="pointer-events-none fixed top-0 left-0 hidden h-8 w-8 rounded-full bg-white blur-lg transition-transform duration-75 ease-out lg:block"
       style={{
         transform: `translate3d(${position.x}px, ${position.y}px, 0) translate(-50%, -50%)`,
       }}

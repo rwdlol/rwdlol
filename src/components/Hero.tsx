@@ -32,21 +32,21 @@ export default function Hero() {
 
 function Image({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="group relative mb-4 h-fit w-fit transition-all duration-500 ease-out select-none hover:scale-110 hover:-rotate-3">
+    <div className="group relative mb-4 h-fit w-fit scale-110 -rotate-3 transition-all duration-500 ease-out select-none lg:scale-100 lg:rotate-0 lg:hover:scale-110 lg:hover:-rotate-3">
       <img
         src={src}
         alt={alt}
         aria-hidden="true"
         fetchPriority="high"
-        className="absolute inset-0 z-0 h-56 w-56 rounded-2xl blur-xl brightness-75 grayscale filter transition-all duration-500 ease-out group-hover:blur-3xl group-hover:brightness-100 group-hover:grayscale-0 group-hover:saturate-150"
+        className="absolute inset-0 z-0 h-56 w-56 rounded-2xl blur-3xl brightness-100 grayscale-0 saturate-150 filter transition-all duration-500 ease-out lg:blur-xl lg:brightness-75 lg:grayscale lg:group-hover:blur-3xl lg:group-hover:brightness-100 lg:group-hover:grayscale-0 lg:group-hover:saturate-150"
       />
       <img
         src={src}
         alt={alt}
         fetchPriority="high"
-        className="relative z-10 h-56 w-56 rounded-2xl border-2 border-zinc-950 object-cover brightness-75 grayscale filter transition-all duration-500 ease-out group-hover:brightness-100 group-hover:grayscale-0 group-hover:saturate-150"
+        className="relative z-10 h-56 w-56 rounded-2xl border-2 border-zinc-950 object-cover brightness-100 grayscale-0 saturate-150 filter transition-all duration-500 ease-out lg:brightness-75 lg:grayscale lg:group-hover:brightness-100 lg:group-hover:grayscale-0 lg:group-hover:saturate-150"
       />
-      <p className="absolute bottom-1/2 left-0 h-fit w-fit -rotate-90 rounded-md bg-white/10 p-1 px-3 text-white transition-all duration-400 ease-out group-hover:-left-20">
+      <p className="absolute bottom-1/2 -left-20 h-fit w-fit -rotate-90 rounded-md bg-white/10 p-1 px-3 text-white transition-all duration-400 ease-out lg:left-0 lg:group-hover:-left-20">
         {alt}
       </p>
     </div>
