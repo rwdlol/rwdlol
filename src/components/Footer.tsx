@@ -11,7 +11,6 @@ export default function Footer() {
 
         <div className="flex flex-wrap items-center justify-center gap-2">
           <SocialLink />
-          <SocialLink />
         </div>
       </div>
     </footer>
@@ -25,6 +24,7 @@ function SocialLink() {
       target="_blank"
       rel="noreferrer"
       className="flex h-8 w-8 flex-col items-center justify-center gap-2 rounded-lg border border-zinc-800 bg-zinc-950 p-2 text-center transition-all duration-300 ease-out hover:bg-zinc-800"
+      aria-label="GitHub Profile"
     >
       <Bug size={24} color="white" />
     </a>

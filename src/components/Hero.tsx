@@ -14,14 +14,16 @@ export default function Hero() {
         <img
           src={Centipede1}
           alt="© Centipede"
-          className="centipede-animation"
+          fetchPriority="high"
+          className="centipede-animation h-auto w-full max-w-96 2xl:max-w-xl"
         />
       </div>
       <div className="absolute right-0 bottom-0 z-10 h-auto w-full max-w-96 overflow-hidden opacity-20 blur-xs 2xl:max-w-xl">
         <img
           src={Centipede4}
           alt="© Centipede"
-          className="centipede-animation-slow"
+          fetchPriority="high"
+          className="centipede-animation-slow h-auto w-full max-w-96 2xl:max-w-xl"
         />
       </div>
     </section>
@@ -35,11 +37,13 @@ function Image({ src, alt }: { src: string; alt: string }) {
         src={src}
         alt={alt}
         aria-hidden="true"
+        fetchPriority="high"
         className="absolute inset-0 z-0 h-56 w-56 rounded-2xl blur-xl brightness-75 grayscale filter transition-all duration-500 ease-out group-hover:blur-3xl group-hover:brightness-100 group-hover:grayscale-0 group-hover:saturate-150"
       />
       <img
         src={src}
         alt={alt}
+        fetchPriority="high"
         className="relative z-10 h-56 w-56 rounded-2xl border-2 border-zinc-950 object-cover brightness-75 grayscale filter transition-all duration-500 ease-out group-hover:brightness-100 group-hover:grayscale-0 group-hover:saturate-150"
       />
       <p className="absolute bottom-1/2 left-0 h-fit w-fit -rotate-90 rounded-md bg-white/10 p-1 px-3 text-white transition-all duration-400 ease-out group-hover:-left-20">

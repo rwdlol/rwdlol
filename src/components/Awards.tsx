@@ -35,6 +35,7 @@ export default function Awards() {
             <img
               src={SilverMedalWSG2025}
               alt="Silver Medal WSG 2025"
+              fetchPriority="high"
               className="mx-auto h-auto w-full max-w-60 min-w-60"
             />
           </div>
@@ -45,7 +46,8 @@ export default function Awards() {
         <img
           src={Centipede2}
           alt="© Centipede"
-          className="centipede-animation"
+          fetchPriority="high"
+          className="centipede-animation h-auto w-full max-w-96 2xl:max-w-xl"
         />
       </div>
     </section>

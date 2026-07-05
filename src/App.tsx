@@ -15,12 +15,14 @@ export default function App() {
       root
       options={{ lerp: 0.06, wheelMultiplier: 0.7, touchMultiplier: 0.7 }}
     >
-      <Hero />
-      <Awards />
-      <Skills />
-      <Projects />
-      <Footer />
-      <GlowCursor />
+      <main>
+        <Hero />
+        <Awards />
+        <Skills />
+        <Projects />
+        <Footer />
+        <GlowCursor />
+      </main>
     </ReactLenis>
   );
 }

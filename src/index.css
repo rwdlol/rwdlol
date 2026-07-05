@@ -35,7 +35,8 @@ body {
   @apply flex flex-col bg-black leading-normal font-normal text-zinc-400;
 }
 
-#root {
+#root,
+main {
   @apply flex flex-col;
 }
 
