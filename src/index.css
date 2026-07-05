@@ -1,0 +1,89 @@
+/* dm-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/dm-sans-v17-latin-regular.woff2") format("woff2");
+}
+/* dm-sans-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./assets/fonts/dm-sans-v17-latin-700.woff2") format("woff2");
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+}
+
+* {
+  scrollbar-width: thin;
+  @apply font-sans;
+}
+
+::selection {
+  background-color: white;
+  color: black;
+}
+
+body {
+  @apply flex flex-col bg-black leading-normal font-normal text-zinc-400;
+}
+
+#root {
+  @apply flex flex-col;
+}
+
+svg,
+img {
+  @apply select-none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply leading-tight font-bold;
+}
+
+.rwd-text-shadow {
+  text-shadow: 0 0 32px rgba(255, 255, 255, 0.7);
+}
+.rwd-box-shadow {
+  filter: drop-shadow(1px 1px 16px white);
+}
+
+.centipede-animation {
+  animation: centipede-animation 12s infinite alternate ease-in-out;
+}
+
+@keyframes centipede-animation {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate(30px, 50px) rotate(15deg);
+  }
+}
+
+.centipede-animation-slow {
+  animation: centipede-animation-slow 15s infinite alternate ease-in-out;
+}
+
+@keyframes centipede-animation-slow {
+  from {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-40px, 30px) rotate(-10deg);
+  }
+}

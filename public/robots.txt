@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rwd.lol/sitemap-index.xml
