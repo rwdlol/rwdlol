@@ -1,0 +1,28 @@
+---
+import { Bug } from "@lucide/astro";
+---
+
+<footer
+  class="relative h-fit w-full border-t border-zinc-900 bg-zinc-950 p-5 py-8"
+>
+  <div
+    class="mx-auto flex h-fit w-full max-w-5xl flex-col items-center justify-center gap-4 md:flex-row md:justify-between"
+  >
+    <p class="text-center">
+      © 2026 All rights reserved.{" "}
+      <span class="font-bold text-white">rwd.lol</span>
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <a
+        href="https://github.com/rwdlol"
+        target="_blank"
+        rel="noreferrer"
+        class="flex h-fit w-fit flex-col items-center justify-center gap-2 rounded-lg border border-zinc-800 bg-zinc-950 p-2 text-center transition-all duration-300 ease-out hover:bg-zinc-800"
+        aria-label="GitHub Profile"
+      >
+        <Bug color="white" />
+      </a>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,36 @@
+---
+import KenKaneki from "../assets/images/ken-kaneki.png";
+import Centipede1 from "../assets/images/centipede1.png";
+import Centipede4 from "../assets/images/centipede4.png";
+import Image from "./Image.astro";
+---
+
+<section
+  class="relative flex h-fit min-h-dvh w-full flex-col items-center justify-center p-5 py-44"
+>
+  <Image src={KenKaneki.src} alt="© Ken Kaneki" />
+  <h1 class="rwd-text-shadow mt-4 text-4xl font-bold text-white md:text-5xl">
+    Rawand Khalid
+  </h1>
+  <p class="text-xl md:text-2xl">Full-Stack Web Developer</p>
+  <div
+    class="absolute top-0 left-0 z-10 h-auto w-full max-w-96 overflow-hidden opacity-20 blur-xs 2xl:max-w-xl"
+  >
+    <img
+      src={Centipede1.src}
+      alt="© Centipede"
+      fetchpriority="low"
+      class="centipede-animation h-auto w-full max-w-96 2xl:max-w-xl"
+    />
+  </div>
+  <div
+    class="absolute right-0 bottom-0 z-10 h-auto w-full max-w-96 overflow-hidden opacity-20 blur-xs 2xl:max-w-xl"
+  >
+    <img
+      src={Centipede4.src}
+      alt="© Centipede"
+      fetchpriority="low"
+      class="centipede-animation-slow h-auto w-full max-w-96 2xl:max-w-xl"
+    />
+  </div>
+</section>

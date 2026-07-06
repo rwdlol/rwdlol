@@ -1,0 +1,101 @@
+---
+import { PackageOpen } from "@lucide/astro";
+import Centipede4 from "../assets/images/centipede4.png";
+
+interface Project {
+  title: string;
+  description: string;
+  technologies: string[];
+  sourceCode?: string;
+  liveDemo: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Portfolio Website",
+    description:
+      "A personal portfolio website built with Astro and Tailwind CSS to showcase my projects and skills.",
+    technologies: ["Astro", "Tailwind CSS"],
+    sourceCode: "https://github.com/rwdlol",
+    liveDemo: "https://rwdlol.github.io",
+  },
+  {
+    title: "Portfolio Website 2",
+    description:
+      "A personal portfolio website built with React and Tailwind CSS to showcase my projects and skills.",
+    technologies: ["React", "Tailwind CSS", "Vite"],
+    liveDemo: "https://rwdlol.github.io/",
+  },
+];
+---
+
+<section class="relative z-0">
+  <div
+    class="relative z-10 mx-auto flex h-fit min-h-dvh w-full max-w-5xl flex-col justify-center gap-6 p-5 py-44"
+  >
+    <h2 class="flex items-center gap-2 text-3xl font-bold text-white">
+      <PackageOpen size={44} color="white" class="rwd-box-shadow" />
+      <span class="rwd-text-shadow">Projects</span>
+    </h2>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {
+        projects.map((project) => (
+          <article class="relative flex flex-col gap-4 rounded-xl border border-zinc-900 bg-zinc-950 p-6 transition-all duration-300 ease-out">
+            <h3 class="text-lg font-bold text-zinc-200">{project.title}</h3>
+            <p>{project.description}</p>
+            <ul class="flex flex-wrap gap-2">
+              {project.technologies.map((technology: string) => (
+                <li class="rounded-full bg-zinc-900 px-3 py-1 text-sm text-zinc-300">
+                  {technology}
+                </li>
+              ))}
+            </ul>
+            {project.sourceCode ? (
+              <div class="mt-2 grid grid-cols-2 gap-2">
+                <a
+                  href={project.sourceCode}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex flex-col items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-950 p-2 text-center transition-all duration-300 ease-out hover:bg-zinc-800"
+                >
+                  Source Code
+                </a>
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex flex-col items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-950 p-2 text-center transition-all duration-300 ease-out hover:bg-zinc-800"
+                >
+                  Live Demo
+                </a>
+              </div>
+            ) : (
+              <div class="mt-2 grid grid-cols-1">
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noreferrer"
+                  class="flex flex-col items-center justify-center gap-2 rounded-xl border border-zinc-800 bg-zinc-950 p-2 text-center transition-all duration-300 ease-out hover:bg-zinc-800"
+                >
+                  Live Demo
+                </a>
+              </div>
+            )}
+          </article>
+        ))
+      }
+    </div>
+  </div>
+
+  <div
+    class="absolute bottom-0 left-0 z-10 h-auto w-full max-w-96 overflow-hidden opacity-20 blur-xs 2xl:max-w-xl"
+  >
+    <img
+      src={Centipede4.src}
+      alt="© Centipede"
+      fetchpriority="low"
+      class="centipede-animation h-auto w-full max-w-96 2xl:max-w-xl"
+    />
+  </div>
+</section>

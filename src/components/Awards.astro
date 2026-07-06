@@ -1,0 +1,53 @@
+---
+import { Medal } from "@lucide/astro";
+import Centipede2 from "../assets/images/centipede3.png";
+import SilverMedalWSG2025 from "../assets/images/sliver_medal_wsg_2025.png";
+---
+
+<section class="relative">
+  <div
+    class="relative mx-auto flex h-fit min-h-dvh w-full max-w-5xl flex-col justify-center gap-6 p-5 py-44"
+  >
+    <h2 class="flex items-center gap-2 text-3xl font-bold text-white">
+      <Medal size={44} color="white" class="rwd-box-shadow" />{" "}
+      <span class="rwd-text-shadow">Awards</span>
+    </h2>
+
+    <div
+      class="flex flex-col-reverse gap-4 overflow-hidden rounded-xl border border-zinc-900 bg-zinc-950 md:flex-row"
+    >
+      <div class="flex flex-col gap-2 p-6">
+        <h3 class="text-xl text-zinc-200">Skill 17 WorldSkills Germany</h3>
+        <p class="leading-relaxed">
+          Won the <strong class="text-zinc-200">Silver Medal</strong> at WorldSkills
+          Germany 2025 (Skill 17), qualifying for the{" "}
+          <strong class="text-zinc-200"> Albert Einstein Cup 2026 </strong>
+          . There, I represented Germany against 11 nations and secured{" "}
+          <strong class="text-zinc-200">5th place</strong>. Today, I am a member
+          of the{" "}
+          <strong class="text-zinc-200"> National Team for Skill 17 </strong>
+          , contributing as a trainer and jury member.
+        </p>
+      </div>
+      <div class="flex h-fit w-full p-4 pt-0">
+        <img
+          src={SilverMedalWSG2025.src}
+          alt="Silver Medal WSG 2025"
+          fetchpriority="high"
+          class="mx-auto h-auto w-full max-w-60 min-w-60"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="absolute bottom-0 left-0 z-10 h-auto w-full max-w-96 overflow-hidden opacity-20 blur-xs 2xl:max-w-xl"
+  >
+    <img
+      src={Centipede2.src}
+      alt="© Centipede"
+      fetchpriority="low"
+      class="centipede-animation h-auto w-full max-w-96 2xl:max-w-xl"
+    />
+  </div>
+</section>

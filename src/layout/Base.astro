@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  index: boolean;
+}
+
+const { title, description, index } = Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="robots"
+      content={index ? "index, follow" : "noindex, nofollow"}
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="/icon.png" type="image/png" />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <meta name="author" content="Rawand Khalid" />
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta property="og:title" content={title} />
+    <meta name="twitter:title" content={title} />
+    <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:description" content={description} />
+    <meta property="og:url" content={Astro.url} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href={Astro.url} />
+    <meta
+      name="keywords"
+      content="Rawand Khalid, rwd.lol, rwdlol, rwd_lol, Kurdistan, Programming, Bernama, Programsaz, Team1877, Hewlêr, Software Engineer, Cybersecurity"
+    />
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>

@@ -4,7 +4,7 @@
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 400;
-  src: url("./assets/fonts/dm-sans-v17-latin-regular.woff2") format("woff2");
+  src: url("../assets/fonts/dm-sans-v17-latin-regular.woff2") format("woff2");
 }
 /* dm-sans-700 - latin */
 @font-face {
@@ -12,7 +12,7 @@
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 700;
-  src: url("./assets/fonts/dm-sans-v17-latin-700.woff2") format("woff2");
+  src: url("../assets/fonts/dm-sans-v17-latin-700.woff2") format("woff2");
 }
 
 @import "tailwindcss";

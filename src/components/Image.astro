@@ -1,0 +1,31 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+}
+
+const { src, alt } = Astro.props as Props;
+---
+
+<div
+  class="group relative mb-4 h-fit w-fit scale-110 -rotate-3 transition-all duration-500 ease-out select-none lg:scale-100 lg:rotate-0 lg:hover:scale-110 lg:hover:-rotate-3"
+>
+  <img
+    src={src}
+    alt={alt}
+    aria-hidden="true"
+    fetchpriority="high"
+    class="absolute inset-0 z-0 h-56 w-56 rounded-2xl blur-3xl brightness-100 grayscale-0 saturate-150 filter transition-all duration-500 ease-out lg:blur-xl lg:brightness-75 lg:grayscale lg:group-hover:blur-3xl lg:group-hover:brightness-100 lg:group-hover:grayscale-0 lg:group-hover:saturate-150"
+  />
+  <img
+    src={src}
+    alt={alt}
+    fetchpriority="high"
+    class="relative z-10 h-56 w-56 rounded-2xl border-2 border-zinc-950 object-cover brightness-100 grayscale-0 saturate-150 filter transition-all duration-500 ease-out lg:brightness-75 lg:grayscale lg:group-hover:brightness-100 lg:group-hover:grayscale-0 lg:group-hover:saturate-150"
+  />
+  <p
+    class="absolute bottom-1/2 -left-20 h-fit w-fit -rotate-90 rounded-md bg-white/10 p-1 px-3 text-white transition-all duration-400 ease-out lg:left-0 lg:group-hover:-left-20"
+  >
+    {alt}
+  </p>
+</div>
