@@ -1,6 +1,5 @@
 ---
 import { PackageOpen } from "@lucide/astro";
-import Centipede4 from "../assets/images/centipede4.png";
 
 interface Project {
   title: string;
@@ -86,16 +85,5 @@ const projects: Project[] = [
         ))
       }
     </div>
-  </div>
-
-  <div
-    class="absolute bottom-0 left-0 z-10 h-auto w-full max-w-96 overflow-hidden opacity-20 blur-xs 2xl:max-w-xl"
-  >
-    <img
-      src={Centipede4.src}
-      alt="© Centipede"
-      fetchpriority="low"
-      class="centipede-animation h-auto w-full max-w-96 2xl:max-w-xl"
-    />
   </div>
 </section>

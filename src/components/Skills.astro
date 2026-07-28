@@ -1,6 +1,5 @@
 ---
 import { Bug } from "@lucide/astro";
-import Centipede2 from "../assets/images/centipede2.png";
 
 type SkillCategories = Record<string, readonly string[]>;
 
@@ -58,16 +57,5 @@ const skillGroups = Object.entries(skills) as Array<
         ))
       }
     </div>
-  </div>
-
-  <div
-    class="absolute right-0 bottom-0 z-10 h-auto w-full max-w-96 overflow-hidden opacity-20 blur-xs 2xl:max-w-xl"
-  >
-    <img
-      src={Centipede2.src}
-      alt="© Centipede"
-      fetchpriority="low"
-      class="centipede-animation h-auto w-full max-w-96 2xl:max-w-xl"
-    />
   </div>
 </section>
