@@ -1,27 +1,8 @@
-<div align="center">
-
-# Rawand - Full-Stack Web Developer
+# Hi, iam Rawand
 
 I am a full-stack web developer with experience in building, deploying, and maintaining modern web applications. My work covers frontend development, backend systems, databases, cloud platforms, DevOps workflows, CMS platforms, and server management.
 
-<br />
-
-<a href="https://rwd.lol">
-  <img src="https://img.shields.io/badge/Portfolio-rwd.lol-000000?style=for-the-badge&logo=google-chrome&logoColor=white" />
-</a>
-
-</div>
-
-## Awards
-
-- Skill 17 Web Technologies WorldSkills Germany 2025
-- Skill 17 Web Technologies Albert Einstein Cup 2026
-
----
-
 ## Skills
-
-### Frontend
 
 <p>
   <img src="https://img.shields.io/badge/JavaScript-000?style=flat-square&logo=javascript" />
@@ -92,13 +73,4 @@ I am a full-stack web developer with experience in building, deploying, and main
   <img src="https://img.shields.io/badge/Apache-000?style=flat-square&logo=apache" />
   <img src="https://img.shields.io/badge/PM2-000?style=flat-square" />
   <img src="https://img.shields.io/badge/cPanel-000?style=flat-square&logo=cpanel" />
-</p>
-
-### Languages
-
-<p>
-  <img src="https://img.shields.io/badge/Kurdish-000?style=flat-square" />
-  <img src="https://img.shields.io/badge/English-000?style=flat-square" />
-  <img src="https://img.shields.io/badge/Arabic-000?style=flat-square" />
-  <img src="https://img.shields.io/badge/German-000?style=flat-square" />
 </p>
