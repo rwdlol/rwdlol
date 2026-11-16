@@ -35,7 +35,6 @@ export function initHeader(root: ParentNode = document): void {
     // Close the menu when the window grows to desktop size.
     const media = window.matchMedia(MOBILE_QUERY);
     const onMediaChange = (event: MediaQueryListEvent) => {
-      // With <ClientRouter />, the old header is removed on page change: stop listening.
       if (!header.isConnected)
         return media.removeEventListener("change", onMediaChange);
       if (!event.matches) setOpen(false);

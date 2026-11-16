@@ -14,7 +14,7 @@ export default defineConfig({
     build: {
       cssCodeSplit: false,
       cssMinify: true,
-      assetsInlineLimit: 0,
+      minify: true,
     },
   },
   integrations: [rwdlolUi()],
