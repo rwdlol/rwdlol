@@ -10,7 +10,7 @@ interface ContactFormArgs {
 const meta = {
   title: "Forms/ContactForm",
   args: {
-    onSubmit: fn(), // spy: lets tests check if/what was submitted
+    onSubmit: fn(),
   },
   render: (args) => {
     const wrapper = document.createElement("div");
@@ -30,12 +30,10 @@ export const ShowsErrorsWhenEmpty: Story = {
   play: async ({ canvas, userEvent, args }) => {
     await userEvent.click(canvas.getByRole("button", { name: "Send message" }));
 
-    // Error summary is announced to screen readers
     await expect(canvas.getByRole("alert")).toHaveTextContent(
       "Please correct 4 fields below.",
     );
 
-    // Every field is marked invalid
     await expect(canvas.getByLabelText(/Full name/)).toHaveAttribute(
       "aria-invalid",
       "true",
@@ -45,7 +43,6 @@ export const ShowsErrorsWhenEmpty: Story = {
       "true",
     );
 
-    // Nothing was submitted
     await expect(args.onSubmit).not.toHaveBeenCalled();
   },
 };
@@ -65,7 +62,6 @@ export const ShowsEmailError: Story = {
       "Please correct 1 field below.",
     );
     await expect(canvas.getByText(/correct format/)).toBeVisible();
-    // The value the user typed is kept
     await expect(canvas.getByLabelText(/Email address/)).toHaveValue("rawand@");
     await expect(args.onSubmit).not.toHaveBeenCalled();
   },
@@ -100,7 +96,6 @@ export const SubmitsValidForm: Story = {
       subject: "Project request",
       message: "I would like to talk about a project.",
     });
-    // Form is cleared after sending
     await expect(canvas.getByLabelText(/Full name/)).toHaveValue("");
   },
 };

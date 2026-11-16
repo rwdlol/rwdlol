@@ -9,17 +9,13 @@ const dirname = path.dirname(fileURLToPath(import.meta.url));
 export default defineConfig({
   test: {
     projects: [
-      // 1) Unit tests: plain functions (*.test.ts), run in Node, very fast
       {
         test: {
           name: "unit",
-          include: ["src/**/*.test.ts"],
+          include: ["src/**/*.test.ts", "packages/*/src/**/*.test.ts"],
           environment: "node",
         },
       },
-
-      // 2) Story tests: every story is rendered in a real browser,
-      //    play functions run, and accessibility is checked with axe
       {
         extends: true,
         plugins: [

@@ -1,8 +1,7 @@
 ---
-import "../styles/tokens.css";
-import "../styles/base.css";
-import Header from "../components/Header/Header.astro";
-import Footer from "../components/Footer/Footer.astro";
+import "@rwdlol/ui/styles.css";
+import "@styles/local.css";
+import { Header, Footer } from "@rwdlol/ui";
 import type { SiteConfig } from "../data/site";
 
 interface Props {
@@ -12,7 +11,6 @@ interface Props {
 }
 
 const { title, description, site } = Astro.props;
-// "/demo/" and "/demo" should both mark the "/demo" link as current
 const currentPath = Astro.url.pathname.replace(/\/$/, "") || "/";
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -43,3 +41,19 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <Footer links={site.footerNav} copyright={site.copyright} />
   </body>
 </html>
+<style>
+  .skip-link {
+    position: absolute;
+    left: var(--space-4);
+    top: -100px;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-focus);
+    color: var(--color-text);
+    font-weight: 700;
+    z-index: 100;
+
+    &:focus {
+      top: var(--space-2);
+    }
+  }
+</style>

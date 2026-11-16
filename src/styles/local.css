@@ -1,0 +1,11 @@
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}

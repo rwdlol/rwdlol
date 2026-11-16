@@ -1,6 +1,4 @@
-// Field definitions + validation for the contact form.
-// Used on the server (to render the form) and in the browser (to re-render with errors).
-import type { InputProps } from "../components/Input/Input";
+import type { InputProps } from "@rwdlol/ui";
 
 export const contactFields: InputProps[] = [
   { id: "name", label: "Full name", autocomplete: "name", required: true },

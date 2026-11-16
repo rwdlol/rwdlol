@@ -1,12 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Header } from "../../components/Header/Header";
-import { Hero } from "../../components/Hero/Hero";
-import { Card } from "../../components/Card/Card";
-import { Alert } from "../../components/Alert/Alert";
-import { Footer } from "../../components/Footer/Footer";
+import { Header, Hero, Card, Alert, Footer } from "@rwdlol/ui/html";
 import { demoSite, services } from "../../data/site";
 
-// Preview of www.rwd.lol/demo (src/pages/demo/index.astro).
 interface DemoPageArgs {
   showAlert: boolean;
 }

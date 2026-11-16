@@ -1,6 +1,5 @@
 import type { Preview } from "@storybook/html-vite";
-import "../src/styles/tokens.css";
-import "../src/styles/base.css";
+import "@rwdlol/ui/styles.css";
 
 const preview: Preview = {
   parameters: {

@@ -1,5 +1,4 @@
-import type { NavLink } from "../components/Header/Header";
-import type { CardProps } from "../components/Card/Card";
+import type { NavLink, CardProps } from "@rwdlol/ui";
 
 export const STORYBOOK_URL = import.meta.env.DEV
   ? "http://localhost:6006"
@@ -15,7 +14,6 @@ export interface SiteConfig {
 
 const year = new Date().getFullYear();
 
-/** The main website: www.rwd.lol */
 export const mainSite: SiteConfig = {
   name: "Rawand",
   brandHref: "/",
@@ -31,7 +29,6 @@ export const mainSite: SiteConfig = {
   copyright: `© ${year} Rawand`,
 };
 
-/** The demo website built from the components: www.rwd.lol/demo */
 export const demoSite: SiteConfig = {
   name: "City Services",
   brandHref: "/demo",

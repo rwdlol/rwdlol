@@ -1,6 +1,10 @@
 {
   "name": "rwdlol",
+  "private": true,
   "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "version": "1.0.0",
   "engines": {
     "node": ">=22.23.4"
@@ -19,7 +23,8 @@
     "test:storybook": "vitest run --project storybook"
   },
   "dependencies": {
-    "astro": "^7.4.12"
+    "astro": "^7.4.12",
+    "@rwdlol/ui": "*"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "^10.6.7",

@@ -1,6 +1,4 @@
-import { Input } from "../Input/Input";
-import { Button } from "../Button/Button";
-import { Alert } from "../Alert/Alert";
+import { Input, Button, Alert } from "@rwdlol/ui/html";
 import {
   contactFields,
   validateContact,

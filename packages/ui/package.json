@@ -1,0 +1,50 @@
+{
+  "name": "@rwdlol/ui",
+  "version": "2.0.0",
+  "description": "Accessible Astro components with design tokens: Button, Card, Alert, Input, Header, Footer, Hero and more.",
+  "type": "module",
+  "license": "MIT",
+  "author": "Rawand <npm@rwd.lol>",
+  "homepage": "https://www.rwd.lol/storybook/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwdlol/rwdlol.git",
+    "directory": "packages/ui"
+  },
+  "bugs": "https://github.com/rwdlol/rwdlol/issues",
+  "keywords": [
+    "astro-component",
+    "withastro",
+    "astro",
+    "ui",
+    "components",
+    "design-system",
+    "accessibility"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./html": "./src/html.ts",
+    "./styles.css": "./src/styles/index.css",
+    "./styles/*": "./src/styles/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "!src/**/*.stories.ts",
+    "!src/**/*.test.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "peerDependencies": {
+    "astro": ">=7.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

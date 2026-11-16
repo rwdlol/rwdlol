@@ -33,3 +33,42 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+  publish:
+    name: Publish @rwdlol/ui to npm
+    needs: ci
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - run: npm install -g npm@latest
+
+      - name: Check if this version is already on npm
+        id: check
+        run: |
+          VERSION=$(node -p "require('./packages/ui/package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if npm view "@rwdlol/ui@$VERSION" version > /dev/null 2>&1; then
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::@rwdlol/ui@$VERSION is already on npm. Nothing to publish."
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish to npm
+        if: steps.check.outputs.publish == 'true'
+        run: npm publish --workspace @rwdlol/ui
+
+      - name: Tag the release
+        if: steps.check.outputs.publish == 'true'
+        run: |
+          git tag "ui-v${{ steps.check.outputs.version }}"
+          git push origin "ui-v${{ steps.check.outputs.version }}"
