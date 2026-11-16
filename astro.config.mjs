@@ -5,5 +5,5 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://www.rwd.lol",
   base: "/",
-  trailingSlash: "ignore",
+  trailingSlash: "always",
 });

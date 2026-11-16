@@ -83,22 +83,19 @@ jobs:
 
       - run: npm ci
 
-      - name: Build Astro pages
+      - name: Build website + Storybook
         run: npm run build
 
-      - name: Build Storybook
-        run: npm run build-storybook
-
-      - name: Upload Storybook preview
+      - name: Upload preview
         if: ${{ !inputs.upload-pages }}
         uses: actions/upload-artifact@v6
         with:
-          name: storybook-preview
-          path: storybook-static
+          name: site-preview
+          path: dist
           retention-days: 7
 
       - name: Upload Pages artifact
         if: ${{ inputs.upload-pages }}
         uses: actions/upload-pages-artifact@v5
         with:
-          path: storybook-static
+          path: dist

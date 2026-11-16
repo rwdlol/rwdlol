@@ -21,14 +21,14 @@ export function Hero({
 }: HeroProps): string {
   const primary =
     primaryLabel && primaryHref
-      ? Button({ label: primaryLabel, href: primaryHref, size: "lg" })
+      ? Button({ label: primaryLabel, href: primaryHref, size: "md" })
       : "";
   const secondary =
     secondaryLabel && secondaryHref
       ? Button({
           label: secondaryLabel,
           href: secondaryHref,
-          size: "lg",
+          size: "md",
           variant: "secondary",
         })
       : "";

@@ -1,98 +1,77 @@
+import { expect } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/html-vite";
 import { Header } from "../../components/Header/Header";
 import { Hero } from "../../components/Hero/Hero";
 import { Card } from "../../components/Card/Card";
-import { Alert } from "../../components/Alert/Alert";
+import { SkillList } from "../../components/SkillList/SkillList";
 import { Footer } from "../../components/Footer/Footer";
-import {
-  SITE_NAME,
-  mainNav,
-  footerNav,
-  copyright,
-  services,
-} from "../../data/site";
-import { expect } from "storybook/test";
+import { mainSite } from "../../data/site";
+import { profile, awards, skills } from "../../data/profile";
 
-// A preview of the home page assembled from the same components and data as src/pages/index.astro.
-interface HomePageArgs {
-  showMaintenanceAlert: boolean;
-}
-
+// Preview of www.rwd.lol (src/pages/index.astro), built from the same components and data.
 const meta = {
   title: "Pages/Home",
   parameters: { layout: "fullscreen" },
-  args: { showMaintenanceAlert: true },
-  render: ({ showMaintenanceAlert }) => `
-    ${Header({ siteName: SITE_NAME, links: mainNav, currentPath: "/" })}
+  render: () => `
+    ${Header({ siteName: mainSite.name, brandHref: mainSite.brandHref, links: mainSite.nav, currentPath: "/" })}
     <main>
       ${Hero({
-        title: "Online services for residents",
-        text: "Apply for permits, book appointments and contact the administration, all in one place.",
-        primaryLabel: "View services",
-        primaryHref: "#services",
-        secondaryLabel: "Contact us",
-        secondaryHref: "/contact",
+        title: profile.name,
+        text: profile.intro,
+        primaryLabel: "View demo website",
+        primaryHref: "/demo",
+        secondaryLabel: "Open Storybook",
+        secondaryHref: "/storybook/",
       })}
-      ${
-        showMaintenanceAlert
-          ? `<div class="container" style="margin-top: var(--space-8)">
-               ${Alert({ type: "warning", title: "Planned maintenance", message: "The portal will be unavailable on Saturday from 8:00 to 12:00." })}
-             </div>`
-          : ""
-      }
-      <section class="container" style="margin-top: var(--space-8)">
-        <h2>Popular services</h2>
-        <div style="display:grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))">
-          ${services.map((service) => Card(service)).join("")}
+      <section class="container" style="margin-top: var(--space-12)">
+        <h2>Awards</h2>
+        <div style="max-width: 720px">${awards.map((award) => Card(award)).join("")}</div>
+      </section>
+      <section class="container" style="margin-top: var(--space-12)">
+        <h2>Skills</h2>
+        <div style="display:grid; gap: var(--space-8); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))">
+          ${skills.map((group) => SkillList(group)).join("")}
         </div>
       </section>
     </main>
-    ${Footer({ links: footerNav, copyright })}
+    ${Footer({ links: mainSite.footerNav, copyright: mainSite.copyright })}
   `,
-} satisfies Meta<HomePageArgs>;
+} satisfies Meta;
 
 export default meta;
-type Story = StoryObj<HomePageArgs>;
+type Story = StoryObj;
 
 export const Default: Story = {};
-
-export const WithoutAlert: Story = {
-  args: { showMaintenanceAlert: false },
-};
 
 // ---------- Page tests ----------
 export const PageStructure: Story = {
   play: async ({ canvas, step }) => {
     await step("Landmarks", async () => {
-      await expect(canvas.getByRole("banner")).toBeInTheDocument(); // <header>
+      await expect(canvas.getByRole("banner")).toBeInTheDocument();
       await expect(canvas.getByRole("main")).toBeInTheDocument();
-      await expect(canvas.getByRole("contentinfo")).toBeInTheDocument(); // <footer>
+      await expect(canvas.getByRole("contentinfo")).toBeInTheDocument();
     });
 
-    await step("Exactly one h1", async () => {
+    await step("Exactly one h1 with the name", async () => {
       await expect(canvas.getAllByRole("heading", { level: 1 })).toHaveLength(
         1,
       );
-    });
-
-    await step("Home is the current page", async () => {
-      await expect(canvas.getByRole("link", { name: "Home" })).toHaveAttribute(
-        "aria-current",
-        "page",
+      await expect(canvas.getByRole("heading", { level: 1 })).toHaveTextContent(
+        profile.name,
       );
     });
 
-    await step("One card per service", async () => {
-      await expect(canvas.getAllByRole("article")).toHaveLength(
-        services.length,
-      );
+    await step("Links to demo and Storybook", async () => {
+      await expect(
+        canvas.getByRole("link", { name: "View demo website" }),
+      ).toHaveAttribute("href", "/demo");
+      await expect(
+        canvas.getByRole("link", { name: "Open Storybook" }),
+      ).toHaveAttribute("href", "/storybook/");
     });
-  },
-};
 
-export const AlertCanBeHidden: Story = {
-  args: { showMaintenanceAlert: false },
-  play: async ({ canvas }) => {
-    await expect(canvas.queryByRole("alert")).not.toBeInTheDocument();
+    await step("One list per skill group", async () => {
+      await expect(canvas.getAllByRole("list")).toHaveLength(skills.length + 2); // + header nav + footer nav
+    });
   },
 };

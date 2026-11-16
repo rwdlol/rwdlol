@@ -8,12 +8,19 @@ export interface NavLink {
 
 export interface HeaderProps {
   siteName: string;
+  /** Where the site name links to. Default: "/" */
+  brandHref?: string;
   links: NavLink[];
   /** Path of the current page, e.g. "/contact". Marks the active link. */
   currentPath?: string;
 }
 
-export function Header({ siteName, links, currentPath }: HeaderProps): string {
+export function Header({
+  siteName,
+  brandHref = "/",
+  links,
+  currentPath,
+}: HeaderProps): string {
   const items = links
     .map((link) => {
       const isCurrent = link.href === currentPath;
@@ -29,7 +36,7 @@ export function Header({ siteName, links, currentPath }: HeaderProps): string {
   return `
     <header class="header">
       <div class="container header__inner">
-        <a class="header__brand" href="/">${esc(siteName)}</a>
+         <a class="header__brand" href="${esc(brandHref)}">${esc(siteName)}</a>
         <nav aria-label="Main navigation">
           <ul class="header__links">${items}</ul>
         </nav>

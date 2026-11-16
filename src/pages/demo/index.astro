@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero/Hero.astro";
+import Alert from "../../components/Alert/Alert.astro";
+import Card from "../../components/Card/Card.astro";
+import { demoSite, services } from "../../data/site";
+---
+
+<BaseLayout
+  title="City Services – Demo"
+  description="A demo website built from the rwd.lol component library."
+  site={demoSite}
+>
+  <Hero
+    title="Online services for residents"
+    text="Apply for permits, book appointments and contact the administration, all in one place."
+    primaryLabel="View services"
+    primaryHref="#services"
+    secondaryLabel="Contact us"
+    secondaryHref="/demo/contact"
+  />
+
+  <div class="container section">
+    <Alert
+      type="info"
+      title="This is a demo"
+      message="City Services is a fictional website built with the components from rwd.lol."
+    />
+  </div>
+
+  <section
+    class="container section"
+    id="services"
+    aria-labelledby="services-title"
+  >
+    <h2 id="services-title">Popular services</h2>
+    <div class="grid">
+      {services.map((service) => (
+        <Card {...service} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    margin-top: var(--space-8);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+</style>

@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { validateContact } from "./contactForm";
 
 const valid = {
-  name: "Rawand",
+  name: "Rawand Khalid",
   email: "hello@rwd.lol",
   subject: "Hello",
   message: "This is long enough.",

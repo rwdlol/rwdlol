@@ -1,0 +1,7 @@
+---
+import { SkillList, type SkillListProps } from "./SkillList";
+
+type Props = SkillListProps;
+---
+
+<Fragment set:html={SkillList(Astro.props)} />

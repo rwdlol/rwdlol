@@ -1,38 +1,40 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero/Hero.astro";
-import Alert from "../components/Alert/Alert.astro";
 import Card from "../components/Card/Card.astro";
-import { services } from "../data/site";
+import SkillList from "../components/SkillList/SkillList.astro";
+import { mainSite, STORYBOOK_URL } from "../data/site";
+import { profile, awards, skills } from "../data/profile";
 ---
 
-<BaseLayout title="Home">
+<BaseLayout
+  title="Rawand Khalid – Full-stack web developer"
+  description="Rawand Khalid is a full-stack web developer: frontend, backend, databases, cloud, DevOps, CMS and server management."
+  site={mainSite}
+>
   <Hero
-    title="Online services for residents"
-    text="Apply for permits, book appointments and contact the administration, all in one place."
-    primaryLabel="View services"
-    primaryHref="#services"
-    secondaryLabel="Contact us"
-    secondaryHref="/contact"
+    title={profile.name}
+    text={profile.intro}
+    primaryLabel="View demo website"
+    primaryHref="/demo"
+    secondaryLabel="Open Storybook"
+    secondaryHref={STORYBOOK_URL}
   />
 
-  <div class="container section">
-    <Alert
-      type="warning"
-      title="Planned maintenance"
-      message="The portal will be unavailable on Saturday from 8:00 to 12:00."
-    />
-  </div>
+  <section class="container section" aria-labelledby="awards-title">
+    <h2 id="awards-title">Awards</h2>
+    <div class="awards">
+      {awards.map((award) => (
+        <Card {...award} />
+      ))}
+    </div>
+  </section>
 
-  <section
-    class="container section"
-    id="services"
-    aria-labelledby="services-title"
-  >
-    <h2 id="services-title">Popular services</h2>
-    <div class="grid">
-      {services.map((service) => (
-        <Card {...service} />
+  <section class="container section" aria-labelledby="skills-title">
+    <h2 id="skills-title">Skills</h2>
+    <div class="skills">
+      {skills.map((group) => (
+        <SkillList {...group} />
       ))}
     </div>
   </section>
@@ -40,12 +42,16 @@ import { services } from "../data/site";
 
 <style>
   .section {
-    margin-top: var(--space-8);
+    margin-top: var(--space-12);
   }
 
-  .grid {
+  .awards {
+    max-width: 720px;
+  }
+
+  .skills {
     display: grid;
-    gap: var(--space-6);
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-8);
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   }
 </style>

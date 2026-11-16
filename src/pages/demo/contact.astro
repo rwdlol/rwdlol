@@ -1,9 +1,14 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import ContactForm from "../components/ContactForm/ContactForm.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ContactForm from "../../components/ContactForm/ContactForm.astro";
+import { demoSite } from "../../data/site";
 ---
 
-<BaseLayout title="Contact" description="Send a message to City Services">
+<BaseLayout
+  title="Contact – City Services Demo"
+  description="Contact form demo."
+  site={demoSite}
+>
   <div class="container contact">
     <h1>Contact us</h1>
     <p>

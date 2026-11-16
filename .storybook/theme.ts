@@ -4,8 +4,8 @@ export default create({
   base: "light",
 
   // Branding
-  brandTitle: "Rawand",
-  brandUrl: "https://www.rwd.lol",
+  brandTitle: "rwd.lol Design System",
+  brandUrl: "/",
   brandImage: "/logo.svg",
   brandTarget: "_self",
 
