@@ -1,6 +1,6 @@
 {
   "name": "@rwdlol/ui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Accessible Astro components with design tokens: Button, Card, Alert, Input, Header, Footer, Hero and more.",
   "type": "module",
   "license": "MIT",
