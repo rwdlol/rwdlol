@@ -1,0 +1,22 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+
+<Meta title="Introduction" />
+
+# City Services Design System
+
+Components for the City Services portal, built with vanilla TypeScript and CSS and used in Astro pages.
+
+## Principles
+
+- **Accessible first:** every component must pass WCAG 2.1 AA (see the Accessibility tab).
+- **Plain HTML:** components are functions that return HTML strings.
+- **One source of truth:** colors and spacing come from `src/styles/tokens.css`.
+
+## How to use a component
+
+```astro
+---
+import Button from '../components/Button/Button.astro';
+---
+<Button label="Continue" variant="primary" />
+```

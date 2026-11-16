@@ -1,0 +1,17 @@
+---
+import { ContactForm } from "./ContactForm";
+---
+
+<div data-contact-form-root>
+  <Fragment set:html={ContactForm()} />
+</div>
+
+<script>
+  import { initContactForm } from "./ContactForm";
+
+  document.querySelectorAll("[data-contact-form-root]").forEach((root) => {
+    initContactForm(root, (values) => {
+      console.log("Contact form submitted", values);
+    });
+  });
+</script>

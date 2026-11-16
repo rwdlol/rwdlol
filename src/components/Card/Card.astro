@@ -1,0 +1,7 @@
+---
+import { Card, type CardProps } from './Card';
+
+type Props = CardProps;
+---
+
+<Fragment set:html={Card(Astro.props)} />

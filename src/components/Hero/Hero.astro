@@ -1,0 +1,7 @@
+---
+import { Hero, type HeroProps } from './Hero';
+
+type Props = HeroProps;
+---
+
+<Fragment set:html={Hero(Astro.props)} />

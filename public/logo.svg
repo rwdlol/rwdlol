@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="32" viewBox="0 0 160 32">
+    <rect width="32" height="32" rx="4" fill="#0b5cad" />
+    <text x="16" y="22" font-family="Arial" font-size="16" font-weight="700" fill="#fff"
+        text-anchor="middle">r/ui</text>
+    <text x="38" y="22" font-family="Arial" font-size="16" font-weight="700" fill="#1b1b1b">@rwd/ui</text>
+</svg>

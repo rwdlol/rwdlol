@@ -1,29 +1,41 @@
 {
   "name": "rwdlol",
   "type": "module",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.23.4"
   },
   "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --project unit",
+    "test:storybook": "vitest run --project storybook",
     "check": "astro check",
+    "check:typesafe": "npx tsc --noEmit",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "pnpm exec prettier . --write"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.9",
-    "@lucide/astro": "^1.23.0",
-    "@tailwindcss/vite": "^4.3.2",
-    "astro": "^7.0.6",
-    "tailwindcss": "^4.3.2",
-    "typescript": "^6.0.3"
+    "astro": "^7.4.12"
   },
   "devDependencies": {
-    "prettier": "3.9.4",
-    "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.8.0"
+    "@storybook/addon-a11y": "^10.6.7",
+    "@storybook/addon-docs": "^10.6.7",
+    "@storybook/addon-vitest": "^10.6.7",
+    "@storybook/html-vite": "^10.6.7",
+    "@types/node": "^26.6.6",
+    "@vitest/browser-playwright": "latest",
+    "@vitest/coverage-v8": "latest",
+    "playwright": "latest",
+    "storybook": "^10.6.7",
+    "vite": "^8.3.8",
+    "vitest": "latest"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
   }
 }

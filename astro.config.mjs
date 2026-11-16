@@ -1,13 +1,9 @@
 // @ts-check
 import { defineConfig } from "astro/config";
-import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://rwd.lol",
+  site: "https://www.rwd.lol",
   base: "/",
   trailingSlash: "ignore",
-  vite: {
-    plugins: [tailwindcss()],
-  },
 });

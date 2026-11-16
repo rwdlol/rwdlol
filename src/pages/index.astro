@@ -1,20 +1,51 @@
 ---
-import Awards from "../components/Awards.astro";
-import Footer from "../components/Footer.astro";
-import Hero from "../components/Hero.astro";
-import Projects from "../components/Projects.astro";
-import Skills from "../components/Skills.astro";
-import Base from "../layout/Base.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero/Hero.astro";
+import Alert from "../components/Alert/Alert.astro";
+import Card from "../components/Card/Card.astro";
+import { services } from "../data/site";
 ---
 
-<Base
-  title="Rawand | Full-Stack Web Developer"
-  description="Rawand, Full-stack Web Developer with expertise in creating modern, responsive, and user-friendly websites and applications."
-  index={true}
->
-  <Hero />
-  <Awards />
-  <Skills />
-  <Projects />
-  <Footer />
-</Base>
+<BaseLayout title="Home">
+  <Hero
+    title="Online services for residents"
+    text="Apply for permits, book appointments and contact the administration, all in one place."
+    primaryLabel="View services"
+    primaryHref="#services"
+    secondaryLabel="Contact us"
+    secondaryHref="/contact"
+  />
+
+  <div class="container section">
+    <Alert
+      type="warning"
+      title="Planned maintenance"
+      message="The portal will be unavailable on Saturday from 8:00 to 12:00."
+    />
+  </div>
+
+  <section
+    class="container section"
+    id="services"
+    aria-labelledby="services-title"
+  >
+    <h2 id="services-title">Popular services</h2>
+    <div class="grid">
+      {services.map((service) => (
+        <Card {...service} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section {
+    margin-top: var(--space-8);
+  }
+
+  .grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+</style>

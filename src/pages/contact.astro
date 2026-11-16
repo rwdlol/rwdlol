@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactForm from "../components/ContactForm/ContactForm.astro";
+---
+
+<BaseLayout title="Contact" description="Send a message to City Services">
+  <div class="container contact">
+    <h1>Contact us</h1>
+    <p>
+      Fields marked with <span aria-hidden="true">*</span>
+      <span class="visually-hidden">an asterisk</span> are required.
+    </p>
+    <ContactForm />
+  </div>
+</BaseLayout>
+
+<style>
+  .contact {
+    max-width: 640px;
+    margin-top: var(--space-8);
+  }
+</style>
