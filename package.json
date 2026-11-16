@@ -6,18 +6,17 @@
     "node": ">=22.23.4"
   },
   "scripts": {
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:unit": "vitest run --project unit",
-    "test:storybook": "vitest run --project storybook",
-    "check": "astro check",
-    "check:typesafe": "npx tsc --noEmit",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "check": "astro check",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:unit": "vitest run --project unit",
+    "test:storybook": "vitest run --project storybook"
   },
   "dependencies": {
     "astro": "^7.4.12"
