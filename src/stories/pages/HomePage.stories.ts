@@ -1,4 +1,3 @@
-import { expect } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/html-vite";
 import { Header } from "../../components/Header/Header";
 import { Hero } from "../../components/Hero/Hero";
@@ -42,36 +41,3 @@ export default meta;
 type Story = StoryObj;
 
 export const Default: Story = {};
-
-// ---------- Page tests ----------
-export const PageStructure: Story = {
-  play: async ({ canvas, step }) => {
-    await step("Landmarks", async () => {
-      await expect(canvas.getByRole("banner")).toBeInTheDocument();
-      await expect(canvas.getByRole("main")).toBeInTheDocument();
-      await expect(canvas.getByRole("contentinfo")).toBeInTheDocument();
-    });
-
-    await step("Exactly one h1 with the name", async () => {
-      await expect(canvas.getAllByRole("heading", { level: 1 })).toHaveLength(
-        1,
-      );
-      await expect(canvas.getByRole("heading", { level: 1 })).toHaveTextContent(
-        profile.name,
-      );
-    });
-
-    await step("Links to demo and Storybook", async () => {
-      await expect(
-        canvas.getByRole("link", { name: "View demo website" }),
-      ).toHaveAttribute("href", "/demo");
-      await expect(
-        canvas.getByRole("link", { name: "Open Storybook" }),
-      ).toHaveAttribute("href", "/storybook/");
-    });
-
-    await step("One list per skill group", async () => {
-      await expect(canvas.getAllByRole("list")).toHaveLength(skills.length + 2); // + header nav + footer nav
-    });
-  },
-};

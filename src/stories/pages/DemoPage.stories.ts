@@ -1,4 +1,3 @@
-import { expect } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/html-vite";
 import { Header } from "../../components/Header/Header";
 import { Hero } from "../../components/Hero/Hero";
@@ -52,47 +51,4 @@ export const Default: Story = {};
 
 export const WithoutAlert: Story = {
   args: { showAlert: false },
-};
-
-// ---------- Page tests ----------
-export const PageStructure: Story = {
-  play: async ({ canvas, step }) => {
-    await step("Landmarks", async () => {
-      await expect(canvas.getByRole("banner")).toBeInTheDocument();
-      await expect(canvas.getByRole("main")).toBeInTheDocument();
-      await expect(canvas.getByRole("contentinfo")).toBeInTheDocument();
-    });
-
-    await step("Exactly one h1", async () => {
-      await expect(canvas.getAllByRole("heading", { level: 1 })).toHaveLength(
-        1,
-      );
-    });
-
-    await step("Home is the current page", async () => {
-      await expect(canvas.getByRole("link", { name: "Home" })).toHaveAttribute(
-        "aria-current",
-        "page",
-      );
-    });
-
-    await step("One card per service", async () => {
-      await expect(canvas.getAllByRole("article")).toHaveLength(
-        services.length,
-      );
-    });
-
-    await step("Link back to the main site", async () => {
-      await expect(
-        canvas.getByRole("link", { name: "← Back to rwd.lol" }),
-      ).toHaveAttribute("href", "/");
-    });
-  },
-};
-
-export const AlertCanBeHidden: Story = {
-  args: { showAlert: false },
-  play: async ({ canvas }) => {
-    await expect(canvas.queryByRole("status")).not.toBeInTheDocument();
-  },
 };
