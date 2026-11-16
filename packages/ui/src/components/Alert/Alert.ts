@@ -1,5 +1,4 @@
 import { esc, cx } from "../../lib/html";
-import "./Alert.css";
 
 export type AlertType = "info" | "success" | "warning" | "error";
 

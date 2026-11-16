@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Hero, Alert, Card } from "@rwdlol/ui";
-import { demoSite, services } from "../../data/site";
+import { Hero, Alert, Card, Accordion } from '@rwdlol/ui';
+import { demoSite, services, faq } from '../../data/site';
 ---
 
 <BaseLayout
@@ -37,6 +37,11 @@ import { demoSite, services } from "../../data/site";
         <Card {...service} />
       ))}
     </div>
+  </section>
+  
+  <section class="container section" aria-labelledby="faq-title">
+    <h2 id="faq-title">Frequently asked questions</h2>
+    <Accordion id="faq" items={faq} />
   </section>
 </BaseLayout>
 

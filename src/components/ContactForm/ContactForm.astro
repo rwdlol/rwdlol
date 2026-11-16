@@ -1,5 +1,6 @@
 ---
-import { ContactForm } from "./ContactForm";
+import { ContactForm } from './ContactForm';
+import './ContactForm.css';
 ---
 
 <div data-contact-form-root>
@@ -7,11 +8,17 @@ import { ContactForm } from "./ContactForm";
 </div>
 
 <script>
-  import { initContactForm } from "./ContactForm";
+  import { initContactForm } from './ContactForm';
 
-  document.querySelectorAll("[data-contact-form-root]").forEach((root) => {
-    initContactForm(root, (values) => {
-      console.log("Contact form submitted", values);
+  function init() {
+    document.querySelectorAll('[data-contact-form-root]').forEach((root) => {
+      initContactForm(root, (values) => {
+        // In a real project: send `values` to your backend with fetch(...)
+        console.log('Contact form submitted', values);
+      });
     });
-  });
+  }
+
+  init();
+  document.addEventListener('astro:page-load', init);
 </script>

@@ -1,5 +1,4 @@
 import { esc, cx, attrs } from "../../lib/html";
-import "./Button.css";
 
 export type ButtonVariant = "primary" | "secondary" | "danger";
 export type ButtonSize = "sm" | "md" | "lg";

@@ -1,0 +1,14 @@
+---
+import { Accordion, type AccordionProps } from "./Accordion";
+
+type Props = AccordionProps;
+---
+
+<Fragment set:html={Accordion(Astro.props)} />
+
+<script>
+  import { initAccordion } from "./Accordion.client";
+
+  initAccordion();
+  document.addEventListener("astro:page-load", () => initAccordion());
+</script>

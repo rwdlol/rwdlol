@@ -1,4 +1,4 @@
-import type { NavLink, CardProps } from "@rwdlol/ui";
+import type { NavLink, CardProps, AccordionItem } from "@rwdlol/ui";
 
 export const STORYBOOK_URL = import.meta.env.DEV
   ? "http://localhost:6006"
@@ -67,5 +67,24 @@ export const services: CardProps[] = [
     href: "/demo/contact",
     linkLabel: "Contact waste services",
     headingLevel: 3,
+  },
+];
+
+export const faq: AccordionItem[] = [
+  {
+    title: "How long does processing take?",
+    content:
+      "Most applications are processed within 10 working days. You will get an email as soon as a decision has been made.",
+    open: true,
+  },
+  {
+    title: "Which documents do I need?",
+    content:
+      "Your ID card and proof of address.\n\nFor a parking permit, also bring your vehicle registration.",
+  },
+  {
+    title: "Can I apply for someone else?",
+    content:
+      "Yes. You need a signed power of attorney and a copy of their ID card.",
   },
 ];

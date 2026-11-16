@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/html-vite";
 import { expect, fn } from "storybook/test";
 import { ContactForm, initContactForm } from "./ContactForm";
 import type { ContactValues } from "../../data/contactForm";
+import './ContactForm.css';
 
 interface ContactFormArgs {
   onSubmit: (values: ContactValues) => void;

@@ -53,6 +53,27 @@ const links = [
 <Footer links={links} copyright="© 2026 My Site" />
 ```
 
+## Smaller CSS (recommended)
+
+Add the integration to ship only the styles your pages use, for example only `.btn--sm`
+if you never use large buttons. It runs after `astro build`; `astro dev` keeps every style.
+
+```js
+// astro.config.mjs
+import { defineConfig } from 'astro/config';
+import rwdlolUi from '@rwdlol/ui/integration';
+
+export default defineConfig({
+  integrations: [rwdlolUi()],
+});
+```
+
+If you add classes yourself with JavaScript (e.g. `el.classList.add('btn--lg')`), keep them with:
+
+```js
+rwdlolUi({ safelist: ['btn--lg'] })
+```
+
 ## Components
 
 | Component   | Main props                                                                                             |

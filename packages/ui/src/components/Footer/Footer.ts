@@ -1,6 +1,5 @@
 import { esc } from "../../lib/html";
 import type { NavLink } from "../Header/Header";
-import "./Footer.css";
 
 export interface FooterProps {
   links: NavLink[];

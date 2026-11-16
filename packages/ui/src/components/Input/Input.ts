@@ -1,5 +1,4 @@
 import { esc, cx, attrs } from "../../lib/html";
-import "./Input.css";
 
 export interface InputProps {
   /** Must be unique on the page; connects <label> and <input>. */

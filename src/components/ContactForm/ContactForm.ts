@@ -4,7 +4,6 @@ import {
   validateContact,
   type ContactValues,
 } from "../../data/contactForm";
-import "./ContactForm.css";
 
 /** Server-safe HTML for the form (used by Astro and Storybook). */
 export function ContactForm(): string {
@@ -35,7 +34,8 @@ export function initContactForm(
 ): void {
   const form = root.querySelector<HTMLFormElement>("[data-contact-form]");
   const status = root.querySelector<HTMLElement>("[data-status]");
-  if (!form || !status) return;
+   if (!form || !status || form.dataset.ready) return; 
+  form.dataset.ready = 'true';
 
   const renderFields = (
     values: ContactValues = {},

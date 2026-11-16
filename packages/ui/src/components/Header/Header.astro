@@ -1,7 +1,14 @@
 ---
-import { Header, type HeaderProps } from './Header';
+import { Header, type HeaderProps } from "./Header";
 
 type Props = HeaderProps;
 ---
 
 <Fragment set:html={Header(Astro.props)} />
+
+<script>
+  import { initHeader } from "./Header.client";
+
+  initHeader();
+  document.addEventListener("astro:page-load", () => initHeader());
+</script>

@@ -1,6 +1,5 @@
 import { esc } from "../../lib/html";
 import { Button } from "../Button/Button";
-import "./Hero.css";
 
 export interface HeroProps {
   title: string;

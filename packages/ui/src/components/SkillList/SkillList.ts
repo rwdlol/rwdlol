@@ -1,5 +1,4 @@
 import { esc } from "../../lib/html";
-import "./SkillList.css";
 
 export interface SkillListProps {
   title: string;
