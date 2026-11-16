@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { validateContact } from "./contactForm";
+import { validateContact } from "@data/contactForm";
 
 const valid = {
   name: "Rawand Khalid",

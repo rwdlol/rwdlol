@@ -31,19 +31,62 @@ const links = [
 <Footer links={links} copyright="© 2026 My Site" />
 ```
 
+## Page layout
+
+`BaseLayout` builds the whole page: `<head>`, skip link, Header, `<main>` and Footer. It loads the styles for you.
+
+```astro
+---
+import { BaseLayout, type SiteConfig } from "@rwdlol/ui";
+
+const site: SiteConfig = {
+  name: "My Site",
+  brandHref: "/",
+  nav: [{ label: "Home", href: "/" }],
+  footerNav: [{ label: "Privacy", href: "/privacy/" }],
+  copyright: "© 2026 My Site",
+  icon: "/favicon.svg",
+};
+---
+
+<BaseLayout title="Home – My Site" description="Welcome to my site." site={site}>
+  <h1>Hello</h1>
+</BaseLayout>
+```
+
+Slots:
+
+| Slot      | Default                          |
+| --------- | -------------------------------- |
+| `header`  | `Header` built from `site`       |
+| `aside`   | Nothing. Adds a sidebar if used  |
+| `main`    | Everything without a `slot`      |
+| `footer`  | `Footer` built from `site`       |
+| `head`    | Nothing. Goes into `<head>`      |
+
+```astro
+<BaseLayout title="Docs" description="Docs" site={site}>
+  <nav slot="aside" aria-label="Chapters">…</nav>
+  <h1>Getting started</h1>
+</BaseLayout>
+```
+
+Set `site` in `astro.config.mjs` to get a canonical link.
+
 ## Components
 
-| Component   | Props                                                                                     |
-| ----------- | ----------------------------------------------------------------------------------------- |
-| `Accordion` | `id`, `items`, `headingLevel`, `allowMultiple`                                            |
-| `Alert`     | `type`, `title`, `message`                                                                |
-| `Button`    | `label`, `variant`, `size`, `href`, `type`, `disabled`, `fullWidth`                       |
-| `Card`      | `title`, `text`, `href`, `linkLabel`, `headingLevel`                                      |
-| `Footer`    | `links`, `copyright`                                                                      |
-| `Header`    | `siteName`, `links`, `currentPath`, `brandHref`, `menuLabel`, `menuId`                    |
-| `Hero`      | `title`, `text`, `primaryLabel`, `primaryHref`, `secondaryLabel`, `secondaryHref`         |
-| `Input`     | `id`, `label`, `type`, `value`, `hint`, `error`, `required`, `multiline`, `autocomplete`  |
-| `SkillList` | `title`, `items`, `headingLevel`                                                          |
+| Component    | Props                                                                                     |
+| ------------ | ----------------------------------------------------------------------------------------- |
+| `Accordion`  | `id`, `items`, `headingLevel`, `allowMultiple`                                            |
+| `Alert`      | `type`, `title`, `message`                                                                |
+| `BaseLayout` | `title`, `description`, `site`, `lang`, `skipLinkLabel`, slots (see above)                |
+| `Button`     | `label`, `variant`, `size`, `href`, `type`, `disabled`, `fullWidth`                       |
+| `Card`       | `title`, `text`, `href`, `linkLabel`, `headingLevel`                                      |
+| `Footer`     | `links`, `copyright`                                                                      |
+| `Header`     | `siteName`, `links`, `currentPath`, `brandHref`, `menuLabel`, `menuId`                    |
+| `Hero`       | `title`, `text`, `primaryLabel`, `primaryHref`, `secondaryLabel`, `secondaryHref`         |
+| `Input`      | `id`, `label`, `type`, `value`, `hint`, `error`, `required`, `multiline`, `autocomplete`  |
+| `SkillList`  | `title`, `items`, `headingLevel`                                                          |
 
 Every props type is exported too, e.g. `import type { ButtonProps } from "@rwdlol/ui"`.
 

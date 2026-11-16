@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Input, type InputProps } from "./Input";
+import { Input, type InputProps } from "@rwdlol/ui/components/Input/Input.ts";
 import { expect } from "storybook/test";
 
 const meta = {

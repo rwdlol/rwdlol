@@ -1,5 +1,5 @@
-import { esc } from "../../lib/html";
-import type { NavLink } from "../Header/Header";
+import { esc } from "@rwdlol/ui/lib/html.ts";
+import type { NavLink } from "@rwdlol/ui/components/Header/Header.ts";
 
 export interface FooterProps {
   links: NavLink[];

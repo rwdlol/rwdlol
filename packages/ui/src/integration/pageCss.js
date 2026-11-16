@@ -1,9 +1,9 @@
-import { createHash } from 'node:crypto';
-import { writeFile } from 'node:fs/promises';
-import path from 'node:path';
-import { classesInHtml, classesInJs } from './classes.js';
-import { inlineScripts, jsImports, scriptSources, stylesheetLinks } from './pageAssets.js';
-import { purge } from './purge.js';
+import { createHash } from "node:crypto";
+import { writeFile } from "node:fs/promises";
+import path from "node:path";
+import { classesInHtml, classesInJs } from "@rwdlol/ui/integration/classes.js";
+import { inlineScripts, jsImports, scriptSources, stylesheetLinks } from "@rwdlol/ui/integration/pageAssets.js";
+import { purge } from "@rwdlol/ui/integration/purge.js";
 
 async function readAllJsOfPage(html, folder) {
   let js = inlineScripts(html);

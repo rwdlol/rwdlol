@@ -1,4 +1,4 @@
-import { esc, attrs } from "../../lib/html";
+import { esc, attrs } from "@rwdlol/ui/lib/html.ts";
 
 export interface NavLink {
   label: string;

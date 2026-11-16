@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Hero, type HeroProps } from "./Hero";
+import { Hero, type HeroProps } from "@rwdlol/ui/components/Hero/Hero.ts";
 import { expect } from "storybook/test";
 
 const meta = {

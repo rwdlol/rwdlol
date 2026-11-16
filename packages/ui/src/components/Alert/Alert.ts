@@ -1,4 +1,4 @@
-import { esc, cx } from "../../lib/html";
+import { esc, cx } from "@rwdlol/ui/lib/html.ts";
 
 export type AlertType = "info" | "success" | "warning" | "error";
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { classesInHtml, classesInJs } from "./classes.js";
+import { classesInHtml, classesInJs } from "@rwdlol/ui/integration/classes.js";
 
 const owned = new Set([
   "btn",

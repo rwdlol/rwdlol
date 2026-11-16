@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { stylesheetLinks, scriptSources, jsImports } from "./pageAssets.js";
+import { stylesheetLinks, scriptSources, jsImports } from "@rwdlol/ui/integration/pageAssets.js";
 
 describe("stylesheetLinks", () => {
   it("finds local stylesheets only", () => {

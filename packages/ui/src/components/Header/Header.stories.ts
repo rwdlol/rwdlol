@@ -1,7 +1,7 @@
 import { expect } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import type { HeaderProps } from "./Header";
-import { exampleHeaderArgs, renderHeaderLikeAstroDoes } from "./Header.example";
+import type { HeaderProps } from "@rwdlol/ui/components/Header/Header.ts";
+import { exampleHeaderArgs, renderHeaderLikeAstroDoes } from "@rwdlol/ui/components/Header/Header.example.ts";
 
 const meta = {
   title: "Layout/Header",

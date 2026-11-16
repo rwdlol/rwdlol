@@ -1,6 +1,6 @@
 import { expect } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { SkillList, type SkillListProps } from "./SkillList";
+import { SkillList, type SkillListProps } from "@rwdlol/ui/components/SkillList/SkillList.ts";
 
 const meta = {
   title: "Components/SkillList",

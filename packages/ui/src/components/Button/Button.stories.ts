@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Button, type ButtonProps } from "./Button";
+import { Button, type ButtonProps } from "@rwdlol/ui/components/Button/Button.ts";
 import { expect } from "storybook/test";
 
 const meta = {

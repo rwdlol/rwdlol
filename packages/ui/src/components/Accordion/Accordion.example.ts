@@ -1,5 +1,5 @@
-import { Accordion, type AccordionProps } from "./Accordion";
-import { initAccordion } from "./Accordion.client";
+import { Accordion, type AccordionProps } from "@rwdlol/ui/components/Accordion/Accordion.ts";
+import { initAccordion } from "@rwdlol/ui/components/Accordion/Accordion.client.ts";
 
 export const exampleAccordionArgs: AccordionProps = {
   id: "faq",

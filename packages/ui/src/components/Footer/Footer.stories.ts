@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Footer, type FooterProps } from "./Footer";
+import { Footer, type FooterProps } from "@rwdlol/ui/components/Footer/Footer.ts";
 import { expect } from "storybook/test";
 
 const meta = {

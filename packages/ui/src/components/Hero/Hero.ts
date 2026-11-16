@@ -1,5 +1,5 @@
-import { esc } from "../../lib/html";
-import { Button } from "../Button/Button";
+import { esc } from "@rwdlol/ui/lib/html.ts";
+import { Button } from "@rwdlol/ui/components/Button/Button.ts";
 
 export interface HeroProps {
   title: string;

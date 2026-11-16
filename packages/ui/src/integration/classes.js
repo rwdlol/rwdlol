@@ -1,7 +1,7 @@
-import { readFile } from 'node:fs/promises';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { listFilesIn } from './files.js';
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { listFilesIn } from "@rwdlol/ui/integration/files.js";
 
 const COMPONENTS_DIR = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'components');
 export const CLASS_IN_SELECTOR = /\.(-?[_a-zA-Z][\w-]*)/g;

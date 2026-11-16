@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Alert, type AlertProps } from "./Alert";
+import { Alert, type AlertProps } from "@rwdlol/ui/components/Alert/Alert.ts";
 import { expect } from "storybook/test";
 
 const meta = {

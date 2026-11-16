@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { esc, cx, attrs } from "./html";
+import { esc, cx, attrs } from "@rwdlol/ui/lib/html.ts";
 
 describe("esc", () => {
   it("escapes HTML special characters", () => {

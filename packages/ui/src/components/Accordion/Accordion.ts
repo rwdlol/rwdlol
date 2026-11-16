@@ -1,4 +1,4 @@
-import { esc } from "../../lib/html";
+import { esc } from "@rwdlol/ui/lib/html.ts";
 
 export interface AccordionItem {
   title: string;

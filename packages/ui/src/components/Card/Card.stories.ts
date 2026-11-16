@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Card, type CardProps } from "./Card";
+import { Card, type CardProps } from "@rwdlol/ui/components/Card/Card.ts";
 import { expect } from "storybook/test";
 
 const meta = {

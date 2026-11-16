@@ -13,6 +13,10 @@ const config: StorybookConfig = {
   ],
   framework: "@storybook/html-vite",
   staticDirs: ["../public"],
+  viteFinal: (viteConfig) => ({
+    ...viteConfig,
+    resolve: { ...viteConfig.resolve, tsconfigPaths: true },
+  }),
 };
 
 export default config;

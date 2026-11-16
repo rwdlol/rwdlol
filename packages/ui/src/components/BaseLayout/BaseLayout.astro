@@ -1,0 +1,49 @@
+---
+import "@rwdlol/ui/styles/index.css";
+import Header from "@rwdlol/ui/components/Header/Header.astro";
+import Footer from "@rwdlol/ui/components/Footer/Footer.astro";
+import { canonicalUrl, contentClassName, type BaseLayoutProps } from "@rwdlol/ui/components/BaseLayout/BaseLayout.ts";
+
+type Props = BaseLayoutProps;
+
+const { title, description, site, lang = "en", skipLinkLabel = "Skip to main content" } = Astro.props;
+const canonical = canonicalUrl(Astro.url.pathname, Astro.site);
+const hasAside = Astro.slots.has("aside");
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {site?.icon && <link rel="icon" href={site.icon} />}
+    <title>{title}</title>
+    <slot name="head" />
+  </head>
+  <body class="base-layout">
+    <a class="skip-link" href="#main">{skipLinkLabel}</a>
+
+    <slot name="header">
+      {site && <Header siteName={site.name} brandHref={site.brandHref} links={site.nav} currentPath={Astro.url.pathname} />}
+    </slot>
+
+    <div class={contentClassName(hasAside)}>
+      {hasAside && (
+        <aside class="base-layout__aside">
+          <slot name="aside" />
+        </aside>
+      )}
+      <main id="main" class="base-layout__main" tabindex="-1">
+        <slot name="main">
+          <slot />
+        </slot>
+      </main>
+    </div>
+
+    <slot name="footer">
+      {site && <Footer links={site.footerNav} copyright={site.copyright} />}
+    </slot>
+  </body>
+</html>

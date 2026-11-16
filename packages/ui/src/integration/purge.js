@@ -1,5 +1,5 @@
-import postcss from 'postcss';
-import { CLASS_IN_SELECTOR } from './classes.js';
+import postcss from "postcss";
+import { CLASS_IN_SELECTOR } from "@rwdlol/ui/integration/classes.js";
 
 function selectorNeedsUnusedClass(selector, owned, used) {
   const selectorWithoutNot = selector.replace(/:not\([^)]*\)/g, '');

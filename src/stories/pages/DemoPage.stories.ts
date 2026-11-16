@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
 import { Header, Hero, Card, Alert, Footer, initHeader } from "@rwdlol/ui/html";
-import { demoSite } from "../../data/site";
-import { services } from "../../data/demoContent";
+import { demoSite } from "@data/site";
+import { services } from "@data/demoContent";
 
 interface DemoPageArgs {
   showAlert: boolean;

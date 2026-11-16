@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { purge } from "./purge.js";
+import { purge } from "@rwdlol/ui/integration/purge.js";
 
 
 const owned = new Set([

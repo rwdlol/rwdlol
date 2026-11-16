@@ -6,8 +6,7 @@
     "verbatimModuleSyntax": true,
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@data/*": ["./src/data/*"],
-      "@layouts/*": ["./src/layouts/*"]
+      "@data/*": ["./src/data/*"]
     }
   }
 }

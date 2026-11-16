@@ -1,7 +1,7 @@
 import { expect, within } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/html-vite";
-import { Accordion, type AccordionProps } from "./Accordion";
-import { exampleAccordionArgs, renderAccordionLikeAstroDoes } from "./Accordion.example";
+import { Accordion, type AccordionProps } from "@rwdlol/ui/components/Accordion/Accordion.ts";
+import { exampleAccordionArgs, renderAccordionLikeAstroDoes } from "@rwdlol/ui/components/Accordion/Accordion.example.ts";
 
 const meta = {
   title: "Components/Accordion",

@@ -1,5 +1,5 @@
 import { Input, Button } from "@rwdlol/ui/html";
-import { contactFields } from "../../data/contactForm";
+import { contactFields } from "@data/contactForm";
 
 export function ContactForm(): string {
   let fields = "";

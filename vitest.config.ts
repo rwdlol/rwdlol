@@ -7,9 +7,11 @@ import { playwright } from "@vitest/browser-playwright";
 const dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  resolve: { tsconfigPaths: true },
   test: {
     projects: [
       {
+        extends: true,
         test: {
           name: "unit",
           include: ["src/**/*.test.ts", "packages/*/src/**/*.test.ts"],

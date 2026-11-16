@@ -1,4 +1,4 @@
-import { esc, cx, attrs } from "../../lib/html";
+import { esc, cx, attrs } from "@rwdlol/ui/lib/html.ts";
 
 export interface InputProps {
   id: string;

@@ -1,9 +1,9 @@
-import { fileURLToPath } from 'node:url';
-import { shipOnlyUsedCss } from './integration/shipOnlyUsedCss.js';
+import { fileURLToPath } from "node:url";
+import { shipOnlyUsedCss } from "@rwdlol/ui/integration/shipOnlyUsedCss.js";
 
-export { classesInHtml, classesInJs } from './integration/classes.js';
-export { purge } from './integration/purge.js';
-export { stylesheetLinks, scriptSources, jsImports } from './integration/pageAssets.js';
+export { classesInHtml, classesInJs } from "@rwdlol/ui/integration/classes.js";
+export { purge } from "@rwdlol/ui/integration/purge.js";
+export { stylesheetLinks, scriptSources, jsImports } from "@rwdlol/ui/integration/pageAssets.js";
 
 function withTrailingSlash(base) {
   if (base.endsWith('/')) return base;

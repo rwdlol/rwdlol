@@ -1,8 +1,8 @@
-import { readFile, rm, writeFile } from 'node:fs/promises';
-import path from 'node:path';
-import { findClassesInComponentCss } from './classes.js';
-import { createBuildFolder, listFilesIn } from './files.js';
-import { findUsedClasses, mergeStylesheetLinks, purgeStyleTags } from './pageCss.js';
+import { readFile, rm, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { findClassesInComponentCss } from "@rwdlol/ui/integration/classes.js";
+import { createBuildFolder, listFilesIn } from "@rwdlol/ui/integration/files.js";
+import { findUsedClasses, mergeStylesheetLinks, purgeStyleTags } from "@rwdlol/ui/integration/pageCss.js";
 
 async function deleteStylesheetsNothingLinksTo(folder, stats) {
   const allFiles = await listFilesIn(folder.outDir);

@@ -1,16 +1,8 @@
-import type { NavLink } from "@rwdlol/ui";
+import type { SiteConfig } from "@rwdlol/ui";
 
 export const STORYBOOK_URL = import.meta.env.DEV
   ? "http://localhost:6006"
   : "/storybook/";
-
-export interface SiteConfig {
-  name: string;
-  brandHref: string;
-  nav: NavLink[];
-  footerNav: NavLink[];
-  copyright: string;
-}
 
 const year = new Date().getFullYear();
 
@@ -27,6 +19,7 @@ export const mainSite: SiteConfig = {
     { label: "Storybook", href: STORYBOOK_URL },
   ],
   copyright: `© ${year} Rawand`,
+  icon: "/logo.svg",
 };
 
 export const demoSite: SiteConfig = {
@@ -44,4 +37,5 @@ export const demoSite: SiteConfig = {
     { label: "← Back to rwd.lol", href: "/" },
   ],
   copyright: `© ${year} City Services (demo)`,
+  icon: "/logo.svg",
 };

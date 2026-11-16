@@ -1,5 +1,5 @@
-import { Header, type HeaderProps } from "./Header";
-import { initHeader } from "./Header.client";
+import { Header, type HeaderProps } from "@rwdlol/ui/components/Header/Header.ts";
+import { initHeader } from "@rwdlol/ui/components/Header/Header.client.ts";
 
 export const exampleHeaderArgs: HeaderProps = {
   siteName: "City Services",

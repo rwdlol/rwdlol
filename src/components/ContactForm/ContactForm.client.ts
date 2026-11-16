@@ -1,5 +1,5 @@
 import { Input, Alert } from "@rwdlol/ui/html";
-import { contactFields, validateContact, type ContactValues, type ContactErrors } from "../../data/contactForm";
+import { contactFields, validateContact, type ContactValues, type ContactErrors } from "@data/contactForm";
 
 function redrawFields(form: HTMLFormElement, values: ContactValues = {}, errors: ContactErrors = {}): void {
   for (const field of contactFields) {
