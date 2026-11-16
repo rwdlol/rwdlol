@@ -1,5 +1,3 @@
-/* Everything in one stylesheet: import '@rwdlol/ui/styles.css';
-   With the @rwdlol/ui integration, styles your pages don't use are removed at build time. */
 @import "./tokens.css";
 @import "./base.css";
 @import "./local.css";
@@ -10,6 +8,8 @@
 @import "../components/Card/Card.css";
 @import "../components/Footer/Footer.css";
 @import "../components/Header/Header.css";
+@import "../components/Header/HeaderToggle.css";
+@import "../components/Header/HeaderMobile.css";
 @import "../components/Hero/Hero.css";
 @import "../components/Input/Input.css";
 @import "../components/SkillList/SkillList.css";

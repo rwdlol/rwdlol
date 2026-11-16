@@ -7,7 +7,6 @@ export interface ButtonProps {
   label: string;
   variant?: ButtonVariant;
   size?: ButtonSize;
-  /** If set, renders a link (<a>) that looks like a button. */
   href?: string;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;

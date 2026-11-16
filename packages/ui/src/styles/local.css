@@ -1,6 +1,37 @@
 body {
-  background-color: var(--color-background);
+  background-color: var(--color-bg);
   color: var(--color-text);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700;
+}
+
+:where(h1) {
+  font-size: var(--font-size-h1);
+}
+
+:where(h2) {
+  font-size: var(--font-size-h2);
+}
+
+:where(h3) {
+  font-size: var(--font-size-h3);
+}
+
+:where(h4) {
+  font-size: var(--font-size-h4);
+}
+
+:where(:focus-visible) {
+  outline: 3px solid var(--color-text);
+  outline-offset: 0;
+  box-shadow: 0 0 0 6px var(--color-focus);
+}
+
+:where([tabindex="-1"]:focus) {
+  outline: none;
+  box-shadow: none;
 }
 
 .container {

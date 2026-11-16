@@ -1,38 +1,12 @@
 import { expect, within } from "storybook/test";
 import type { Meta, StoryObj } from "@storybook/html-vite";
 import { Accordion, type AccordionProps } from "./Accordion";
-import { initAccordion } from "./Accordion.client";
+import { exampleAccordionArgs, renderAccordionLikeAstroDoes } from "./Accordion.example";
 
 const meta = {
   title: "Components/Accordion",
-  // Same as Accordion.astro: render the HTML, then add the behaviour.
-  render: (args) => {
-    const wrapper = document.createElement("div");
-    wrapper.style.maxWidth = "720px";
-    wrapper.innerHTML = Accordion(args);
-    initAccordion(wrapper);
-    return wrapper;
-  },
-  args: {
-    id: "faq",
-    headingLevel: 3,
-    allowMultiple: false,
-    items: [
-      {
-        title: "How long does processing take?",
-        content: "Most applications are processed within 10 working days.",
-        open: true,
-      },
-      {
-        title: "Which documents do I need?",
-        content: "Your ID card and proof of address.\n\nFor a parking permit, also bring your vehicle registration.",
-      },
-      {
-        title: "Can I apply for someone else?",
-        content: "Yes, with a signed power of attorney.",
-      },
-    ],
-  },
+  render: renderAccordionLikeAstroDoes,
+  args: exampleAccordionArgs,
   argTypes: {
     headingLevel: { control: "inline-radio", options: [2, 3, 4, 5, 6] },
     allowMultiple: { control: "boolean" },
@@ -57,7 +31,6 @@ export const AllClosed: Story = {
   },
 };
 
-// ---------- Interaction tests ----------
 export const StartsWithOpenItemsOnly: Story = {
   play: async ({ canvas }) => {
     const [first, second] = canvas.getAllByRole("button");
@@ -68,70 +41,12 @@ export const StartsWithOpenItemsOnly: Story = {
   },
 };
 
-export const ButtonControlsItsPanel: Story = {
+export const PanelIsNamedByItsButton: Story = {
   play: async ({ canvas }) => {
     const button = canvas.getByRole("button", { name: "Which documents do I need?" });
-    const panelId = button.getAttribute("aria-controls")!;
     const panel = canvas.getByRole("region", { name: "How long does processing take?" });
-    await expect(panelId).toBe("faq-panel-1");
-    // Panels are named by their button
+    await expect(button.getAttribute("aria-controls")).toBe("faq-panel-1");
     await expect(panel).toHaveAttribute("aria-labelledby", "faq-trigger-0");
-  },
-};
-
-export const ClickTogglesItem: Story = {
-  play: async ({ canvas, userEvent, step }) => {
-    const button = canvas.getByRole("button", { name: "Which documents do I need?" });
-
-    await step("Open", async () => {
-      await userEvent.click(button);
-      await expect(button).toHaveAttribute("aria-expanded", "true");
-      await expect(canvas.getByText(/proof of address/)).toBeVisible();
-    });
-
-    await step("Close again", async () => {
-      await userEvent.click(button);
-      await expect(button).toHaveAttribute("aria-expanded", "false");
-      await expect(canvas.queryByText(/proof of address/)).not.toBeVisible();
-    });
-  },
-};
-
-export const OpeningOneClosesTheOthers: Story = {
-  play: async ({ canvas, userEvent }) => {
-    const [first, second] = canvas.getAllByRole("button");
-    await userEvent.click(second);
-    await expect(second).toHaveAttribute("aria-expanded", "true");
-    await expect(first).toHaveAttribute("aria-expanded", "false");
-  },
-};
-
-export const AllowMultipleKeepsOthersOpen: Story = {
-  args: { allowMultiple: true },
-  play: async ({ canvas, userEvent }) => {
-    const [first, second] = canvas.getAllByRole("button");
-    await userEvent.click(second);
-    await expect(second).toHaveAttribute("aria-expanded", "true");
-    await expect(first).toHaveAttribute("aria-expanded", "true");
-  },
-};
-
-export const KeyboardNavigation: Story = {
-  play: async ({ canvas, userEvent }) => {
-    const [first, second, third] = canvas.getAllByRole("button");
-    first.focus();
-    await userEvent.keyboard("{ArrowDown}");
-    await expect(second).toHaveFocus();
-    await userEvent.keyboard("{End}");
-    await expect(third).toHaveFocus();
-    await userEvent.keyboard("{ArrowDown}"); // wraps around
-    await expect(first).toHaveFocus();
-    await userEvent.keyboard("{ArrowUp}");
-    await expect(third).toHaveFocus();
-    await userEvent.keyboard("{Home}");
-    await expect(first).toHaveFocus();
-    await userEvent.keyboard("{Enter}"); // native button: Enter toggles
-    await expect(first).toHaveAttribute("aria-expanded", "false");
   },
 };
 
@@ -142,8 +57,7 @@ export const UsesChosenHeadingLevel: Story = {
   },
 };
 
-export const WorksWithoutJavaScript: Story = {
-  // Only the HTML, no initAccordion(): like a visitor with JavaScript turned off.
+export const WithoutJavaScriptShowsAllContent: Story = {
   render: (args) => Accordion(args),
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);

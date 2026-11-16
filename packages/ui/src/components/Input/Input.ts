@@ -1,21 +1,26 @@
 import { esc, cx, attrs } from "../../lib/html";
 
 export interface InputProps {
-  /** Must be unique on the page; connects <label> and <input>. */
   id: string;
   label: string;
   name?: string;
-  type?: "text" | "email" | "tel" | "password" | "number" | "date";
+  type?: "text" | "email" | "tel" | "url" | "search" | "password" | "number" | "date";
   value?: string;
   placeholder?: string;
   hint?: string;
   error?: string;
   required?: boolean;
   disabled?: boolean;
-  /** Helps browsers autofill, e.g. "name", "email", "tel". */
   autocomplete?: string;
-  /** Renders a <textarea> instead of an <input>. */
   multiline?: boolean;
+}
+
+function idsOfHintAndError(id: string, hint?: string, error?: string): string | undefined {
+  const ids: string[] = [];
+  if (hint) ids.push(`${id}-hint`);
+  if (error) ids.push(`${id}-error`);
+  if (ids.length === 0) return undefined;
+  return ids.join(" ");
 }
 
 export function Input({
@@ -32,12 +37,7 @@ export function Input({
   autocomplete,
   multiline = false,
 }: InputProps): string {
-  const hintId = `${id}-hint`;
-  const errorId = `${id}-error`;
-  const describedBy =
-    [hint && hintId, error && errorId].filter(Boolean).join(" ") || undefined;
-
-  const shared = attrs({
+  const sharedAttributes = attrs({
     id,
     name: name ?? id,
     placeholder,
@@ -45,21 +45,24 @@ export function Input({
     disabled,
     autocomplete,
     "aria-invalid": error ? "true" : undefined,
-    "aria-describedby": describedBy,
+    "aria-describedby": idsOfHintAndError(id, hint, error),
   });
   const className = cx("field__control", error && "field__control--error");
 
-  const control = multiline
-    ? `<textarea class="${className}" rows="5"${shared}>${esc(value)}</textarea>`
-    : `<input class="${className}"${attrs({ type, value })}${shared} />`;
+  let control = `<input class="${className}"${attrs({ type, value })}${sharedAttributes} />`;
+  if (multiline) {
+    control = `<textarea class="${className}" rows="5"${sharedAttributes}>${esc(value)}</textarea>`;
+  }
+
+  const requiredMark = required ? ' <span class="field__required" aria-hidden="true">*</span>' : "";
+  const hintHtml = hint ? `<p class="field__hint" id="${esc(`${id}-hint`)}">${esc(hint)}</p>` : "";
+  const errorHtml = error ? `<p class="field__error" id="${esc(`${id}-error`)}">${esc(error)}</p>` : "";
 
   return `
     <div class="${cx("field", error && "field--error")}">
-      <label class="field__label" for="${esc(id)}">
-        ${esc(label)}${required ? ' <span class="field__required" aria-hidden="true">*</span>' : ""}
-      </label>
-      ${hint ? `<p class="field__hint" id="${esc(hintId)}">${esc(hint)}</p>` : ""}
-      ${error ? `<p class="field__error" id="${esc(errorId)}">${esc(error)}</p>` : ""}
+      <label class="field__label" for="${esc(id)}">${esc(label)}${requiredMark}</label>
+      ${hintHtml}
+      ${errorHtml}
       ${control}
     </div>`;
 }

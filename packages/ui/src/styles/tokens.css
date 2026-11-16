@@ -26,6 +26,11 @@
   --space-8: 32px;
   --space-12: 48px;
 
+  --font-size-h1: clamp(32rem, 24rem + 2vw, 44rem);
+  --font-size-h2: clamp(24rem, 21rem + 0.8vw, 30rem);
+  --font-size-h3: 20rem;
+  --font-size-h4: 18rem;
+
   --radius: 4px;
   --border-width: 2px;
   --container-width: 1100px;

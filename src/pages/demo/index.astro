@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Hero, Alert, Card, Accordion } from '@rwdlol/ui';
-import { demoSite, services, faq } from '../../data/site';
+import { Hero, Alert, Card, Accordion } from "@rwdlol/ui";
+import { demoSite } from "../../data/site";
+import { services, faq } from "../../data/demoContent";
 ---
 
 <BaseLayout
@@ -15,7 +16,7 @@ import { demoSite, services, faq } from '../../data/site';
     primaryLabel="View services"
     primaryHref="#services"
     secondaryLabel="Contact us"
-    secondaryHref="/demo/contact"
+    secondaryHref="/demo/contact/"
   />
 
   <div class="container section">
@@ -48,6 +49,10 @@ import { demoSite, services, faq } from '../../data/site';
 <style>
   .section {
     margin-top: var(--space-8);
+  }
+
+  .section > h2 {
+    margin-bottom: var(--space-4);
   }
 
   .grid {

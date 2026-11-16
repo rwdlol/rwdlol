@@ -1,6 +1,6 @@
 ---
-import { ContactForm } from './ContactForm';
-import './ContactForm.css';
+import { ContactForm } from "./ContactForm";
+import "./ContactForm.css";
 ---
 
 <div data-contact-form-root>
@@ -8,17 +8,19 @@ import './ContactForm.css';
 </div>
 
 <script>
-  import { initContactForm } from './ContactForm';
+  import type { ContactValues } from "../../data/contactForm";
+  import { initContactForm } from "./ContactForm.client";
 
-  function init() {
-    document.querySelectorAll('[data-contact-form-root]').forEach((root) => {
-      initContactForm(root, (values) => {
-        // In a real project: send `values` to your backend with fetch(...)
-        console.log('Contact form submitted', values);
-      });
-    });
+  function logValuesUntilABackendExists(values: ContactValues) {
+    console.log("Contact form submitted", values);
   }
 
-  init();
-  document.addEventListener('astro:page-load', init);
+  function initEveryContactForm() {
+    for (const root of document.querySelectorAll("[data-contact-form-root]")) {
+      initContactForm(root, logValuesUntilABackendExists);
+    }
+  }
+
+  initEveryContactForm();
+  document.addEventListener("astro:page-load", initEveryContactForm);
 </script>

@@ -1,7 +1,4 @@
-// @rwdlol/ui: Astro components
-// Usage: import { Button, Card } from '@rwdlol/ui';
-// Types for this file live in index.d.ts.
-export { default as Accordion } from './components/Accordion/Accordion.astro';
+export { default as Accordion } from "./components/Accordion/Accordion.astro";
 export { default as Alert } from "./components/Alert/Alert.astro";
 export { default as Button } from "./components/Button/Button.astro";
 export { default as Card } from "./components/Card/Card.astro";

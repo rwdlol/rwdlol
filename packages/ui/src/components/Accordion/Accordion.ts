@@ -2,53 +2,58 @@ import { esc } from "../../lib/html";
 
 export interface AccordionItem {
   title: string;
-  /** Plain text. Blank lines start a new paragraph. */
   content: string;
-  /** Open when the page loads. */
   open?: boolean;
 }
 
 export interface AccordionProps {
-  /** Unique on the page. Used to connect buttons and panels. */
   id: string;
   items: AccordionItem[];
-  /** Heading level of each item title, so it fits the page outline. Default: 3 */
   headingLevel?: 2 | 3 | 4 | 5 | 6;
-  /** Allow several items to be open at once. Default: false (opening one closes the others) */
   allowMultiple?: boolean;
 }
 
-const paragraphs = (text: string) =>
-  text
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean)
-    .map((p) => `<p>${esc(p)}</p>`)
-    .join("");
+function textToParagraphs(text: string): string {
+  let html = "";
+  for (const paragraph of text.split(/\n\s*\n/)) {
+    const trimmed = paragraph.trim();
+    if (trimmed) html += `<p>${esc(trimmed)}</p>`;
+  }
+  return html;
+}
+
+function renderItemOpenUntilScriptRuns(
+  accordionId: string,
+  item: AccordionItem,
+  index: number,
+  headingTag: string,
+): string {
+  const triggerId = esc(`${accordionId}-trigger-${index}`);
+  const panelId = esc(`${accordionId}-panel-${index}`);
+  const startsOpen = item.open ? "true" : "false";
+
+  return `
+    <div class="accordion__item" data-open="${startsOpen}">
+      <${headingTag} class="accordion__heading">
+        <button class="accordion__trigger" type="button" id="${triggerId}" aria-expanded="true" aria-controls="${panelId}">
+          <span class="accordion__title">${esc(item.title)}</span>
+          <span class="accordion__icon" aria-hidden="true"></span>
+        </button>
+      </${headingTag}>
+      <div class="accordion__panel" id="${panelId}" role="region" aria-labelledby="${triggerId}">
+        ${textToParagraphs(item.content)}
+      </div>
+    </div>`;
+}
 
 export function Accordion({ id, items, headingLevel = 3, allowMultiple = false }: AccordionProps): string {
-  const h = `h${headingLevel}`;
+  const headingTag = `h${headingLevel}`;
 
-  // Without JavaScript every panel is shown, so all content stays readable.
-  // initAccordion() (Accordion.client.ts) then collapses the items that aren't `open`.
-  const rows = items
-    .map((item, index) => {
-      const triggerId = `${id}-trigger-${index}`;
-      const panelId = `${id}-panel-${index}`;
-      return `
-        <div class="accordion__item" data-open="${item.open ? "true" : "false"}">
-          <${h} class="accordion__heading">
-            <button class="accordion__trigger" type="button" id="${esc(triggerId)}" aria-expanded="true" aria-controls="${esc(panelId)}">
-              <span class="accordion__title">${esc(item.title)}</span>
-              <span class="accordion__icon" aria-hidden="true"></span>
-            </button>
-          </${h}>
-          <div class="accordion__panel" id="${esc(panelId)}" role="region" aria-labelledby="${esc(triggerId)}">
-            ${paragraphs(item.content)}
-          </div>
-        </div>`;
-    })
-    .join("");
+  let rows = "";
+  items.forEach((item, index) => {
+    rows += renderItemOpenUntilScriptRuns(id, item, index, headingTag);
+  });
 
-  return `<div class="accordion" id="${esc(id)}"${allowMultiple ? " data-allow-multiple" : ""}>${rows}</div>`;
+  const allowMultipleAttribute = allowMultiple ? " data-allow-multiple" : "";
+  return `<div class="accordion" id="${esc(id)}"${allowMultipleAttribute}>${rows}</div>`;
 }

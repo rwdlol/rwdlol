@@ -1,50 +1,78 @@
-// Browser behaviour for the Accordion.
-// Header.astro runs this automatically. Call it yourself only when you
-// insert an Accordion with JavaScript (e.g. Storybook or innerHTML).
+interface AccordionPart {
+  item: HTMLElement;
+  trigger: HTMLButtonElement;
+  panel: HTMLElement;
+}
+
+function findDirectParts(accordion: HTMLElement): AccordionPart[] {
+  const items = accordion.querySelectorAll<HTMLElement>(":scope > .accordion__item");
+  const parts: AccordionPart[] = [];
+  for (const item of items) {
+    parts.push({
+      item,
+      trigger: item.querySelector<HTMLButtonElement>(".accordion__trigger")!,
+      panel: item.querySelector<HTMLElement>(".accordion__panel")!,
+    });
+  }
+  return parts;
+}
+
+function showOrHidePanel(part: AccordionPart, open: boolean): void {
+  part.trigger.setAttribute("aria-expanded", String(open));
+  if (open) {
+    part.panel.removeAttribute("hidden");
+  } else {
+    part.panel.setAttribute("hidden", "until-found");
+  }
+}
+
+function indexToFocusForKey(key: string, current: number, last: number): number | undefined {
+  if (key === "ArrowDown") return current === last ? 0 : current + 1;
+  if (key === "ArrowUp") return current === 0 ? last : current - 1;
+  if (key === "Home") return 0;
+  if (key === "End") return last;
+  return undefined;
+}
+
+function moveFocusWithArrowKeys(accordion: HTMLElement, triggers: HTMLButtonElement[]): void {
+  accordion.addEventListener("keydown", (event) => {
+    const current = triggers.indexOf(document.activeElement as HTMLButtonElement);
+    if (current === -1) return;
+
+    const target = indexToFocusForKey(event.key, current, triggers.length - 1);
+    if (target === undefined) return;
+
+    event.preventDefault();
+    triggers[target].focus();
+  });
+}
+
+function makeAccordionInteractive(accordion: HTMLElement): void {
+  accordion.classList.add("accordion--js");
+  const allowMultiple = accordion.hasAttribute("data-allow-multiple");
+  const parts = findDirectParts(accordion);
+
+  const openOrClose = (chosen: AccordionPart, open: boolean) => {
+    if (open && !allowMultiple) {
+      for (const other of parts) if (other !== chosen) showOrHidePanel(other, false);
+    }
+    showOrHidePanel(chosen, open);
+  };
+
+  for (const part of parts) {
+    showOrHidePanel(part, part.item.dataset.open === "true");
+    part.trigger.addEventListener("click", () => {
+      openOrClose(part, part.trigger.getAttribute("aria-expanded") !== "true");
+    });
+    part.panel.addEventListener("beforematch", () => openOrClose(part, true));
+  }
+
+  moveFocusWithArrowKeys(accordion, parts.map((part) => part.trigger));
+}
 
 export function initAccordion(root: ParentNode = document): void {
-  root.querySelectorAll<HTMLElement>(".accordion").forEach((accordion) => {
-    if (accordion.classList.contains("accordion--js")) return; // already initialised
-    accordion.classList.add("accordion--js");
-
-    const allowMultiple = accordion.hasAttribute("data-allow-multiple");
-    const items = [...accordion.querySelectorAll<HTMLElement>(".accordion__item")];
-    const triggers = items.map((item) => item.querySelector<HTMLButtonElement>(".accordion__trigger")!);
-
-    const setOpen = (item: HTMLElement, open: boolean) => {
-      const trigger = item.querySelector<HTMLButtonElement>(".accordion__trigger")!;
-      const panel = item.querySelector<HTMLElement>(".accordion__panel")!;
-      trigger.setAttribute("aria-expanded", String(open));
-      panel.hidden = !open;
-    };
-
-    // Start state: collapse everything that isn't marked as open.
-    items.forEach((item) => setOpen(item, item.dataset.open === "true"));
-
-    items.forEach((item, index) => {
-      triggers[index].addEventListener("click", () => {
-        const open = triggers[index].getAttribute("aria-expanded") !== "true";
-        if (open && !allowMultiple) {
-          items.forEach((other) => other !== item && setOpen(other, false));
-        }
-        setOpen(item, open);
-      });
-    });
-
-    // Keyboard: ↓ ↑ move between titles, Home/End jump to first/last.
-    accordion.addEventListener("keydown", (event) => {
-      const current = triggers.indexOf(document.activeElement as HTMLButtonElement);
-      if (current === -1) return;
-      const last = triggers.length - 1;
-      const target = {
-        ArrowDown: current === last ? 0 : current + 1,
-        ArrowUp: current === 0 ? last : current - 1,
-        Home: 0,
-        End: last,
-      }[event.key];
-      if (target === undefined) return;
-      event.preventDefault();
-      triggers[target].focus();
-    });
-  });
+  for (const accordion of root.querySelectorAll<HTMLElement>(".accordion")) {
+    const alreadyInteractive = accordion.classList.contains("accordion--js");
+    if (!alreadyInteractive) makeAccordionInteractive(accordion);
+  }
 }

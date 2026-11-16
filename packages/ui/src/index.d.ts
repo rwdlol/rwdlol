@@ -1,5 +1,3 @@
-// Types for index.js. Each Astro component is typed with its props,
-// so editors and `astro check` catch missing or wrong props.
 import type { AccordionProps } from "./components/Accordion/Accordion";
 import type { AlertProps } from "./components/Alert/Alert";
 import type { ButtonProps } from "./components/Button/Button";
@@ -10,7 +8,6 @@ import type { HeroProps } from "./components/Hero/Hero";
 import type { InputProps } from "./components/Input/Input";
 import type { SkillListProps } from "./components/SkillList/SkillList";
 
-/** An Astro component that accepts the props P. */
 type AstroComponent<P> = (props: P) => any;
 
 export declare const Accordion: AstroComponent<AccordionProps>;

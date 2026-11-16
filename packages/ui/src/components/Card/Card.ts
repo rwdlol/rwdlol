@@ -4,10 +4,8 @@ import { Button } from "../Button/Button";
 export interface CardProps {
   title: string;
   text: string;
-  /** Optional link shown at the bottom of the card. */
   href?: string;
   linkLabel?: string;
-  /** Heading level, so the card fits the page outline (accessibility). */
   headingLevel?: 2 | 3 | 4;
 }
 

@@ -1,0 +1,64 @@
+*,
+*::before,
+*::after {
+  vertical-align: baseline;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: thin;
+  font: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
+
+:where(html) {
+  min-height: 100%;
+  font-size: 6.25%;
+  text-size-adjust: 100%;
+  scrollbar-gutter: stable;
+}
+
+:where(body) {
+  min-height: 100%;
+  font-weight: 400;
+  font-size: 16rem;
+  line-height: 1.6;
+  font-family: -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+}
+
+:where(b, strong) {
+  font-weight: 700;
+}
+
+:where(a) {
+  color: inherit;
+}
+
+:where(
+  article,
+  aside,
+  details,
+  figcaption,
+  figure,
+  footer,
+  header,
+  menu,
+  nav,
+  section
+) {
+  display: block;
+}
+
+:where(main) {
+  display: flex;
+  position: relative;
+  flex: 1;
+  flex-direction: column;
+}
+
+:where(ol, ul) {
+  list-style: none;
+}

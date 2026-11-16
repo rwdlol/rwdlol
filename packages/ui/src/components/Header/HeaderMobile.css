@@ -1,0 +1,29 @@
+@media (max-width: 767.98px) {
+  .header--js .header__toggle {
+    display: inline-flex;
+  }
+
+  .header--js .header__nav {
+    display: none;
+    flex-basis: 100%;
+  }
+
+  .header--js .header__nav--open {
+    display: block;
+  }
+
+  .header--js .header__links {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .header--js .header__link {
+    display: block;
+    padding-block: var(--space-3);
+    border-bottom: 1px solid rgb(255 255 255 / 0.2);
+  }
+
+  .header--js .header__link[aria-current="page"] {
+    border-bottom-color: #fff;
+  }
+}

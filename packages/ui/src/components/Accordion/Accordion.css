@@ -32,7 +32,6 @@
   text-underline-offset: 3px;
 }
 
-/* Chevron, drawn with borders */
 .accordion__icon {
   flex-shrink: 0;
   width: 10px;
@@ -48,7 +47,6 @@
   transform: translateY(2px) rotate(-135deg);
 }
 
-/* Without JavaScript the buttons can't do anything, so hide the chevron */
 .accordion:not(.accordion--js) .accordion__icon {
   display: none;
 }
@@ -56,6 +54,10 @@
 .accordion__panel {
   padding-bottom: var(--space-4);
   color: var(--color-text-muted);
+}
+
+.accordion__panel[hidden] {
+  padding: 0;
 }
 
 .accordion__panel > p + p {
