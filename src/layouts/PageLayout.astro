@@ -1,0 +1,24 @@
+---
+import { BaseLayout, Header, Footer, type BaseLayoutProps } from "@rwdlol/ui";
+import type { SiteConfig } from "@data/site";
+
+type Props = BaseLayoutProps & { site: SiteConfig };
+
+const { site, ...layoutProps } = Astro.props;
+---
+
+<BaseLayout {...layoutProps}>
+  <slot name="head" slot="head" />
+
+  <Header
+    slot="header"
+    siteName={site.name}
+    brandHref={site.brandHref}
+    links={site.nav}
+    currentPath={Astro.url.pathname}
+  />
+
+  <slot />
+
+  <Footer slot="footer" links={site.footerNav} copyright={site.copyright} />
+</BaseLayout>

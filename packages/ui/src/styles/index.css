@@ -1,5 +1,5 @@
-@import "@rwdlol/ui/styles/tokens.css";
-@import "@rwdlol/ui/styles/base.css";
+@import "@rwdlol/ui/styles/tokens/index.css";
+@import "@rwdlol/ui/styles/base/index.css";
 @import "@rwdlol/ui/styles/local.css";
 
 @import "@rwdlol/ui/components/Accordion/Accordion.css";
@@ -13,4 +13,5 @@
 @import "@rwdlol/ui/components/Header/HeaderMobile.css";
 @import "@rwdlol/ui/components/Hero/Hero.css";
 @import "@rwdlol/ui/components/Input/Input.css";
-@import "@rwdlol/ui/components/SkillList/SkillList.css";
+@import "@rwdlol/ui/components/Content/Link/Link.css";
+@import "@rwdlol/ui/components/Content/List/List.css";

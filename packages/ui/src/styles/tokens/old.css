@@ -8,7 +8,6 @@
   --color-surface: #f4f5f7;
   --color-border: #c7cbd1;
   --color-focus: #ffbf47;
-
   --color-info: #0b5cad;
   --color-info-bg: #e7f0fa;
   --color-success: #1e7b34;
@@ -17,7 +16,6 @@
   --color-warning-bg: #fff4d6;
   --color-error: #b3261e;
   --color-error-bg: #fdecea;
-
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -25,15 +23,10 @@
   --space-6: 24px;
   --space-8: 32px;
   --space-12: 48px;
-
   --font-size-h1: clamp(32rem, 24rem + 2vw, 44rem);
   --font-size-h2: clamp(24rem, 21rem + 0.8vw, 30rem);
   --font-size-h3: 20rem;
   --font-size-h4: 18rem;
-
-  --radius: 4px;
-  --border-width: 2px;
-  --container-width: 1100px;
 }
 
 [data-contrast="high"] {

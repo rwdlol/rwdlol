@@ -1,37 +1,14 @@
 import { addons } from "storybook/manager-api";
 import { create } from "storybook/theming";
 
-const rwdlolTheme = create({
-  base: "light",
-
-  brandTitle: "rwd.lol Design System",
-  brandUrl: "/",
-  brandImage: "/logo.svg",
-  brandTarget: "_self",
-  colorPrimary: "#0b5cad",
-  colorSecondary: "#0b5cad",
-  appBg: "#f4f5f7",
-  appContentBg: "#ffffff",
-  appPreviewBg: "#ffffff",
-  appBorderColor: "#c7cbd1",
-  appBorderRadius: 4,
-  fontBase: 'system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif',
-  fontCode: "ui-monospace, Menlo, monospace",
-  textColor: "#1b1b1b",
-  textInverseColor: "#ffffff",
-  textMutedColor: "#545454",
-  barTextColor: "#545454",
-  barSelectedColor: "#0b5cad",
-  barHoverColor: "#0b5cad",
-  barBg: "#ffffff",
-  inputBg: "#ffffff",
-  inputBorder: "#c7cbd1",
-  inputTextColor: "#1b1b1b",
-  inputBorderRadius: 4,
+const theme = create({
+  base: "dark",
+  brandTitle: "@rwdlol/ui",
+  brandUrl: "/storybook/",
 });
 
 addons.setConfig({
-  theme: rwdlolTheme,
+  theme: theme,
   panelPosition: "right",
   showToolbar: true,
   sidebar: {

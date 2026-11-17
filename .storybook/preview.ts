@@ -13,26 +13,26 @@ const preview: Preview = {
       },
     },
 
-    options: {
-      storySort: {
-        order: [
-          "Introduction",
-          "Foundations",
-          "Components",
-          "Forms",
-          "Layout",
-          "Pages",
-        ],
-      },
-    },
+    // options: {
+    //   storySort: {
+    //     order: [
+    //       "Introduction",
+    //       "Foundations",
+    //       "Components",
+    //       "Forms",
+    //       "Layout",
+    //       "Pages",
+    //     ],
+    //   },
+    // },
 
-    backgrounds: {
-      options: {
-        white: { name: "White", value: "#ffffff" },
-        surface: { name: "Surface", value: "#f4f5f7" },
-        primary: { name: "Primary", value: "#0b5cad" },
-      },
-    },
+    // backgrounds: {
+    //   options: {
+    //     white: { name: "White", value: "#ffffff" },
+    //     surface: { name: "Surface", value: "#f4f5f7" },
+    //     primary: { name: "Primary", value: "#0b5cad" },
+    //   },
+    // },
 
     viewport: {
       options: {
@@ -40,6 +40,10 @@ const preview: Preview = {
         tablet: {
           name: "Tablet",
           styles: { width: "768px", height: "1024px" },
+        },
+        laptop: {
+          name: "Laptop",
+          styles: { width: "1024px", height: "678px" },
         },
         desktop: {
           name: "Desktop",

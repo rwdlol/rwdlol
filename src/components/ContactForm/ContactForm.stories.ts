@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/html-vite";
 import { expect, fn } from "storybook/test";
-import { ContactForm } from "@components/ContactForm/ContactForm";
-import { initContactForm } from "@components/ContactForm/ContactForm.client";
-import type { ContactValues } from "@data/contactForm";
+import { ContactForm, initContactForm, type ContactValues } from "@components/ContactForm/ContactForm";
 import "@components/ContactForm/ContactForm.css";
 
 interface ContactFormArgs {

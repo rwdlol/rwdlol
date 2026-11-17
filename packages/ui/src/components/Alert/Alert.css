@@ -3,7 +3,6 @@
   gap: var(--space-3);
   padding: var(--space-4);
   border-left: 6px solid;
-  border-radius: var(--radius);
 }
 
 .alert__icon {

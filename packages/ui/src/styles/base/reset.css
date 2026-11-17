@@ -22,7 +22,7 @@
   min-height: 100%;
   font-weight: 400;
   font-size: 16rem;
-  line-height: 1.6;
+  line-height: 1.5;
   font-family: -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,6 +35,7 @@
 
 :where(a) {
   color: inherit;
+  text-decoration: none;
 }
 
 :where(
@@ -46,19 +47,19 @@
   footer,
   header,
   menu,
+  main,
   nav,
   section
 ) {
   display: block;
 }
 
-:where(main) {
-  display: flex;
-  position: relative;
-  flex: 1;
-  flex-direction: column;
+:where(ol, ul, li) {
+  margin: 0;
+  padding: 0;
 }
 
-:where(ol, ul) {
+/* .rwd-c-list keeps the browser's markers, so the type attribute (a, A, i, I) still works */
+:where(ol, ul, li):not(:where(.rwd-c-list, .rwd-c-list > li)) {
   list-style: none;
 }

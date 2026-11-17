@@ -1,0 +1,15 @@
+:root {
+  --rwd-font-size-h1: 29rem;
+  --rwd-font-size-h2: 22rem;
+  --rwd-font-size-h3: 19rem;
+  --rwd-font-size-h4: 16rem;
+}
+
+@media screen and (min-width: 480px) {
+  :root {
+    --rwd-font-size-h1: 44rem;
+    --rwd-font-size-h2: 30rem;
+    --rwd-font-size-h3: 22rem;
+    --rwd-font-size-h4: 18rem;
+  }
+}

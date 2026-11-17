@@ -3,10 +3,10 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "verbatimModuleSyntax": true,
     "paths": {
       "@components/*": ["./src/components/*"],
-      "@data/*": ["./src/data/*"]
+      "@data/*": ["./src/data/*"],
+      "@layouts/*": ["./src/layouts/*"]
     }
   }
 }

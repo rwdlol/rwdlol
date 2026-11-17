@@ -12,7 +12,8 @@ function demoAlert(showAlert: boolean): string {
   const alert = Alert({
     type: "info",
     title: "This is a demo",
-    message: "City Services is a fictional website built with the components from rwd.lol.",
+    message:
+      "City Services is a fictional website built with the components from rwd.lol.",
   });
   return `<div class="container" style="margin-top: var(--space-8)">${alert}</div>`;
 }

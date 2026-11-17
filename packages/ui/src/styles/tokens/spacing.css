@@ -1,0 +1,13 @@
+:root {
+  --rwd-space-xs: 4px;
+  --rwd-space-sm: 8px;
+  --rwd-space-md: 12px;
+  --rwd-space-lg: 16px;
+  --rwd-space-xl: 20px;
+  --rwd-space-2xl: 24px;
+  --rwd-space-3xl: 32px;
+  --rwd-space-4xl: 40px;
+  --rwd-space-5xl: 48px;
+  --rwd-space-6xl: 64px;
+  --rwd-space-7xl: 80px;
+}

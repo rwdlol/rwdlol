@@ -1,13 +1,12 @@
 .contact-form__form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-6);
-  margin-top: var(--space-6);
+  gap: var(--rwd-space-2xl);
+  margin-top: var(--rwd-space-2xl);
 }
 
-.contact-form__field {
-  width: 100%;
+.contact-form__form > button {
+  align-self: flex-start;
 }
 
 .contact-form__status:focus {

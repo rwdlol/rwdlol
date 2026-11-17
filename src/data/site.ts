@@ -1,4 +1,12 @@
-import type { SiteConfig } from "@rwdlol/ui";
+import type { NavLink } from "@rwdlol/ui";
+
+export interface SiteConfig {
+  name: string;
+  brandHref: string;
+  nav: NavLink[];
+  footerNav: NavLink[];
+  copyright: string;
+}
 
 export const STORYBOOK_URL = import.meta.env.DEV
   ? "http://localhost:6006"
@@ -19,7 +27,6 @@ export const mainSite: SiteConfig = {
     { label: "Storybook", href: STORYBOOK_URL },
   ],
   copyright: `© ${year} Rawand`,
-  icon: "/logo.svg",
 };
 
 export const demoSite: SiteConfig = {
@@ -28,14 +35,7 @@ export const demoSite: SiteConfig = {
   nav: [
     { label: "Home", href: "/demo/" },
     { label: "Services", href: "/demo/#services" },
-    { label: "Contact", href: "/demo/contact/" },
   ],
-  footerNav: [
-    { label: "Legal notice", href: "/demo/#legal-notice" },
-    { label: "Privacy", href: "/demo/#privacy" },
-    { label: "Accessibility", href: "/demo/#accessibility" },
-    { label: "← Back to rwd.lol", href: "/" },
-  ],
-  copyright: `© ${year} City Services (demo)`,
-  icon: "/logo.svg",
+  footerNav: [{ label: "Back to rwd.lol", href: "/" }],
+  copyright: `© ${year} City Services`,
 };

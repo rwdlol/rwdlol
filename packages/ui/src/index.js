@@ -7,4 +7,3 @@ export { default as Footer } from "@rwdlol/ui/components/Footer/Footer.astro";
 export { default as Header } from "@rwdlol/ui/components/Header/Header.astro";
 export { default as Hero } from "@rwdlol/ui/components/Hero/Hero.astro";
 export { default as Input } from "@rwdlol/ui/components/Input/Input.astro";
-export { default as SkillList } from "@rwdlol/ui/components/SkillList/SkillList.astro";

@@ -8,5 +8,4 @@ export * from "@rwdlol/ui/components/Header/Header.ts";
 export { initHeader } from "@rwdlol/ui/components/Header/Header.client.ts";
 export * from "@rwdlol/ui/components/Hero/Hero.ts";
 export * from "@rwdlol/ui/components/Input/Input.ts";
-export * from "@rwdlol/ui/components/SkillList/SkillList.ts";
 export { esc, cx, attrs } from "@rwdlol/ui/lib/html.ts";
