@@ -12,6 +12,9 @@
     "directory": "packages/ui"
   },
   "bugs": "https://github.com/rwdlol/rwdlol/issues",
+  "keywords": [
+    "astro"
+  ],
   "exports": {
     ".": {
       "types": "./src/index.d.ts",

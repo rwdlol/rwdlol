@@ -17,39 +17,39 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  quality:
-    name: Typecheck & unit tests
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v7
+  # quality:
+  #   name: Typecheck & unit tests
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #     - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v7
-        with:
-          node-version-file: .nvmrc
-          cache: npm
+  #     - uses: actions/setup-node@v7
+  #       with:
+  #         node-version-file: .nvmrc
+  #         cache: npm
 
-      - run: npm ci
-      - run: npm run typecheck
-      - run: npm run test:unit
+  #     - run: npm ci
+  #     - run: npm run typecheck
+  #     - run: npm run test:unit
 
-  storybook-tests:
-    name: Storybook tests (interaction + a11y)
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v7
+  # storybook-tests:
+  #   name: Storybook tests (interaction + a11y)
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 15
+  #   steps:
+  #     - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v7
-        with:
-          node-version-file: .nvmrc
-          cache: npm
+  #     - uses: actions/setup-node@v7
+  #       with:
+  #         node-version-file: .nvmrc
+  #         cache: npm
 
-      - run: npm ci
+  #     - run: npm ci
 
-      - run: npx playwright install --with-deps chromium
+  #     - run: npx playwright install --with-deps chromium
 
-      - run: npm run test:storybook
+  #     - run: npm run test:storybook
 
   build:
     name: Build

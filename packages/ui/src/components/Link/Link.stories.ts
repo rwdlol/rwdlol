@@ -25,7 +25,7 @@ function linkHtml({ label, href, state }: LinkArgs): string {
 }
 
 const meta = {
-  title: "Components/Content/Link",
+  title: "Components/Link",
   tags: ["autodocs"],
   render: (args) => `<p>Read our ${linkHtml(args)} for details.</p>`,
   args: {

@@ -13,5 +13,4 @@
 @import "@rwdlol/ui/components/Header/HeaderMobile.css";
 @import "@rwdlol/ui/components/Hero/Hero.css";
 @import "@rwdlol/ui/components/Input/Input.css";
-@import "@rwdlol/ui/components/Content/Link/Link.css";
-@import "@rwdlol/ui/components/Content/List/List.css";
+@import "@rwdlol/ui/components/Link/Link.css";
