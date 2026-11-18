@@ -3,7 +3,7 @@ name: code-style
 description: How to write code so a 14-year-old can understand it. Use before writing or editing ANY file in this project.
 ---
 
-# Code style for languagekrd
+# Code style
 
 Every file must be easy enough for a 14-year-old to read. Always, for the whole project.
 
