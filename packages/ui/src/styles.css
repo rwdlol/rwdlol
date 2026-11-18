@@ -1,0 +1,12 @@
+/* Default Styling */
+@import "./styles/reset.css";
+@import "./styles/local.css";
+@import "./styles/base/spacing.css";
+@import "./styles/base/colors.css";
+@import "./styles/base/typography.css";
+
+/* Templates Styling */
+@import "./templates/PageShell/PageShell.css";
+
+/* Component Styling */
+@import "./components/Header/HeaderMinimal/HeaderMinimal.css";

@@ -1,0 +1,11 @@
+:root {
+  --rwd-color-background: #fefefe;
+  --rwd-color-surface: #ffffff;
+  --rwd-color-headline: #171717;
+  --rwd-color-text: #333333;
+  --rwd-color-text-hint: #76767a;
+  --rwd-color-border: #d9d9de;
+  --rwd-color-primary: #0061d9;
+  --rwd-color-error: #d51a1a;
+  --rwd-color-warning: #ff9500;
+}

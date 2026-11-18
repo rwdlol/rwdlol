@@ -1,0 +1,7 @@
+---
+import { makeFooterHtml, type FooterProps } from "./Footer.html.ts";
+
+type Props = FooterProps;
+---
+
+<Fragment set:html={makeFooterHtml(Astro.props)} />

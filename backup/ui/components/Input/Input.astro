@@ -1,0 +1,7 @@
+---
+import { makeInputHtml, type InputProps } from "./Input.html.ts";
+
+type Props = InputProps;
+---
+
+<Fragment set:html={makeInputHtml(Astro.props)} />

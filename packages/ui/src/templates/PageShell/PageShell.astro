@@ -1,0 +1,85 @@
+---
+import type { PageShellProps } from "./PageShell.props";
+
+type Props = PageShellProps;
+
+const { lang = "en", dir = "ltr", skipToContent = false } = Astro.props;
+
+const hasSidebar = Astro.slots.has("sidebar");
+const hasPageTop = Astro.slots.has("page-top");
+const hasFieldTop = Astro.slots.has("field-top");
+const hasFieldFooter = Astro.slots.has("field-footer");
+const hasBeforeBody = Astro.slots.has("before-body");
+---
+
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <slot name="head" />
+  </head>
+  <body tabindex="-1">
+    {skipToContent && (
+      <a href="#content" class="skip-to-content">
+        Skip to Content
+      </a>
+    )}
+    {hasPageTop && (
+      <div class="page-top">
+        <slot name="page-top" />
+      </div>
+    )}
+    <div class="page-main-canvas">
+      <div class="page">
+        <div class:list={["all", hasSidebar && "with-sidebar"]}>
+          {hasSidebar && (
+            <aside class="sidebar main">
+              <div class="container">
+                <div class="field-sidebar-left"></div>
+              </div>
+            </aside>
+          )}
+
+          <div class="inner">
+            {hasFieldTop && (
+              <div class="top">
+                <div class="container">
+                  <div class="field-top">
+                    <slot name="field-top" />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <main class="main">
+              <div class="container">
+                <div class="field-main" id="content">
+                  <slot name="field-main" />
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+
+        <button class="scroll-to-top" aria-label="Back to Top">
+          back to top
+        </button>
+
+        {hasFieldFooter && (
+          <footer class="main">
+            <div class="container">
+              <div class="field-footer">
+                <slot name="field-footer" />
+              </div>
+            </div>
+          </footer>
+        )}
+      </div>
+    </div>
+
+    {hasBeforeBody && <slot name="before-body" />}
+  </body>
+</html>

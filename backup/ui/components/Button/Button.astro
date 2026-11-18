@@ -1,0 +1,7 @@
+---
+import { makeButtonHtml, type ButtonProps } from "./Button.html.ts";
+
+type Props = ButtonProps;
+---
+
+<Fragment set:html={makeButtonHtml(Astro.props)} />

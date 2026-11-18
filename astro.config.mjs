@@ -6,6 +6,9 @@ export default defineConfig({
   site: "https://www.rwd.lol",
   base: "/",
   trailingSlash: "always",
+  devToolbar: {
+    enabled: false,
+  },
   build: {
     inlineStylesheets: "always",
   },

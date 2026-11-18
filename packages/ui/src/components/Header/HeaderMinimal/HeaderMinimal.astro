@@ -1,0 +1,17 @@
+---
+import { makeHeaderMinimalHtml, type HeaderMinimalProps } from "./HeaderMinimal.html.ts";
+
+type Props = HeaderMinimalProps;
+
+const html = makeHeaderMinimalHtml({ currentPath: Astro.url.pathname, ...Astro.props });
+---
+
+<Fragment set:html={html} />
+
+<script>
+  import { HeaderMinimal } from "./HeaderMinimal.browser.ts";
+
+  for (const header of document.querySelectorAll<HTMLElement>(".header-minimal")) {
+    new HeaderMinimal(header);
+  }
+</script>

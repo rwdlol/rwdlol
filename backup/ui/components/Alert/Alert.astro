@@ -1,0 +1,7 @@
+---
+import { makeAlertHtml, type AlertProps } from "./Alert.html.ts";
+
+type Props = AlertProps;
+---
+
+<Fragment set:html={makeAlertHtml(Astro.props)} />

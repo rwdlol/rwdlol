@@ -1,0 +1,126 @@
+---
+---
+
+<header class="main">
+  <div class="container">
+    <a class="logo" href="/" title="Back to Homepage">
+      <img
+        alt="@rwdlol/ui Logo – Startseite"
+        src="/logo.svg"
+        width="184"
+        height="47"
+      />
+    </a>
+
+    <div class="navigation" id="main-menu" aria-label="Main menu">
+      <div class="container">
+        <nav class="main" role="navigation">
+          <ul>
+            <li>
+              <a href="/design-system/">
+                <span class="label">Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="/design-system/about/">
+                <span class="label">About</span>
+              </a>
+            </li>
+            <li>
+              <a href="/design-system/legal/">
+                <span class="label">Privacy</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <button
+      type="button"
+      class="hamburger"
+      aria-haspopup="true"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 100 92"
+        version="1.1"
+      >
+        <g>
+          <line
+            class="line first"
+            x1="0"
+            y1="10"
+            x2="100"
+            y2="10"
+            shape-rendering="crispEdges"
+          ></line>
+          <line
+            class="line cross"
+            x1="0"
+            y1="46"
+            x2="100"
+            y2="46"
+            shape-rendering="crispEdges"
+          ></line>
+          <line
+            class="line second"
+            x1="0"
+            y1="82"
+            x2="100"
+            y2="82"
+            shape-rendering="crispEdges"
+          ></line>
+        </g>
+      </svg>
+    </button>
+  </div>
+</header>
+
+<style>
+  header.main {
+    width: 100%;
+
+    > .container {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      > a.logo {
+        > img {
+          /* test */
+        }
+      }
+
+      > .navigation {
+        > .container {
+          nav.main {
+            > ul {
+              display: flex;
+              align-items: center;
+              gap: 20px;
+
+              > li {
+                > a {
+                  span {
+                    /* test */
+                  }
+
+                  &:hover {
+                    /* test */
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

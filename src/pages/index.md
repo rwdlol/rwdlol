@@ -8,7 +8,7 @@ description: Rawand Khalid, full-stack web developer. I build, deploy, and maint
 
 Full-stack web developer. I build, deploy, and maintain web apps, from frontend and backend to databases, cloud, and servers.
 
-[GitHub](https://github.com/rwdlol) · [X](https://x.com/rwd_lol)
+[GitHub](https://github.com/rwdlol) - [X](https://x.com/rwd_lol)
 
 ## Awards
 
@@ -26,5 +26,5 @@ Silver medal at WorldSkills Germany 2025, which qualified me for the Albert Eins
 - **Server** Ubuntu/Debian, Nginx, Apache, PM2, cPanel
 - **CMS** WordPress, Drupal, Blogger
 - **Tools** Git, Docker, Figma, Storybook, Postman, Vite, Bun, pnpm, Biome
-- **AI** Claude Code, Cursor, Copilot, Codex, Vercel AI SDK, OpenRouter
+- **AI** Claude Code, Cursor, Copilot, Codex, Vercel AI SDK, OpenRouter, Hugging Face
 - **Spoken** Kurdish, Arabic, German, English

@@ -1,9 +1,0 @@
-export { default as Accordion } from "@rwdlol/ui/components/Accordion/Accordion.astro";
-export { default as Alert } from "@rwdlol/ui/components/Alert/Alert.astro";
-export { default as BaseLayout } from "@rwdlol/ui/components/BaseLayout/BaseLayout.astro";
-export { default as Button } from "@rwdlol/ui/components/Button/Button.astro";
-export { default as Card } from "@rwdlol/ui/components/Card/Card.astro";
-export { default as Footer } from "@rwdlol/ui/components/Footer/Footer.astro";
-export { default as Header } from "@rwdlol/ui/components/Header/Header.astro";
-export { default as Hero } from "@rwdlol/ui/components/Hero/Hero.astro";
-export { default as Input } from "@rwdlol/ui/components/Input/Input.astro";

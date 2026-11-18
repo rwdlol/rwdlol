@@ -1,0 +1,28 @@
+---
+import "@rwdlol/ui/styles.css";
+import { PageShell } from "@rwdlol/ui";
+import Header from "@components/Header.astro";
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href || null;
+---
+
+<PageShell skipToContent={true}>
+  <slot slot="head">
+    <title>Testing</title>
+    <meta name="description" content="Testing page" />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+  </slot>
+
+  <slot slot="page-top">
+    <Header />
+  </slot>
+
+  <slot slot="field-main">
+    <h1>my content comes here right?</h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem,
+      provident sed quo excepturi totam amet odio voluptatem repellat dolore
+      sit. Neque at omnis voluptas, et asperiores earum quam inventore vero?
+    </p>
+  </slot>
+</PageShell>

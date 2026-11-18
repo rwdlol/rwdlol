@@ -16,20 +16,13 @@
     "astro"
   ],
   "exports": {
-    ".": {
-      "types": "./src/index.d.ts",
-      "default": "./src/index.js"
-    },
+    ".": "./src/index.ts",
     "./html": "./src/html.ts",
     "./integration": {
       "types": "./src/integration.d.ts",
       "default": "./src/integration.js"
     },
-    "./styles.css": "./src/styles/index.css",
-    "./components/*": "./src/components/*",
-    "./lib/*": "./src/lib/*",
-    "./integration/*": "./src/integration/*",
-    "./styles/*": "./src/styles/*",
+    "./styles.css": "./src/styles.css",
     "./package.json": "./package.json"
   },
   "files": [
@@ -44,12 +37,14 @@
     "**/*.css"
   ],
   "peerDependencies": {
-    "astro": ">=7.0.0"
+    "astro": "latest"
   },
   "publishConfig": {
     "access": "public"
   },
   "dependencies": {
-    "postcss": "^8.5.33"
+    "postcss": "latest",
+    "vite": "latest",
+    "vitest": "latest"
   }
 }

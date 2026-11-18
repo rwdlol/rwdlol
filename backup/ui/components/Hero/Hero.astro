@@ -1,0 +1,7 @@
+---
+import { makeHeroHtml, type HeroProps } from "./Hero.html.ts";
+
+type Props = HeroProps;
+---
+
+<Fragment set:html={makeHeroHtml(Astro.props)} />
