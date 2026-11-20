@@ -1,0 +1,215 @@
+---
+/**
+ * One hanging badge: rail segment + pin + lanyard + clip + badge holder.
+ * Only the card art inside the holder is an image.
+ * Extras (note, photo, card…) can be passed in through the default <slot />.
+ */
+interface Props {
+  id: string; // unique, used for the SVG path ids
+  image: string; // e.g. "/images/badges/01-gym.jpg"
+  alt: string;
+  color: string; // lanyard colour
+  text: string; // text woven into the lanyard
+  length: number; // lanyard length in px (at full scale)
+  extraSpace?: number; // extra height below the badge (for things hanging under it)
+}
+
+const { id, image, alt, color, text, length, extraSpace = 0 } = Astro.props;
+
+const W = 124,
+  cx = 62,
+  s = 26,
+  h = length;
+const left = `M${cx - 3},4 C${cx - s},${Math.round(h * 0.3)} ${cx - s},${Math.round(h * 0.72)} ${cx - 4},${h}`;
+const right = `M${cx + 3},4 C${cx + s},${Math.round(h * 0.3)} ${cx + s},${Math.round(h * 0.72)} ${cx + 4},${h}`;
+const woven = ` ${text} ·`.repeat(8);
+---
+
+<div class="col" style={`--h:${h}; --x:${extraSpace}`}>
+  <slot />
+
+  <svg class="lan" viewBox={`0 0 ${W} ${h}`} aria-hidden="true">
+    <defs>
+      <path id={`${id}-a`} d={left} />
+      <path id={`${id}-b`} d={right} />
+      <pattern
+        id={`${id}-weave`}
+        width="3"
+        height="3"
+        patternUnits="userSpaceOnUse"
+      >
+        <rect width="1.5" height="1.5" fill="#000" opacity=".18" />
+      </pattern>
+    </defs>
+    {[left, right].map((d) => (
+      <>
+        <path d={d} stroke="rgba(0,0,0,.45)" stroke-width="12" fill="none" />
+        <path d={d} stroke={color} stroke-width="10.5" fill="none" />
+        <path
+          d={d}
+          stroke={`url(#${id}-weave)`}
+          stroke-width="10.5"
+          fill="none"
+        />
+      </>
+    ))}
+    <text dy="1.6">
+      <textPath href={`#${id}-a`}>{woven}</textPath>
+    </text>
+    <text dy="1.6">
+      <textPath href={`#${id}-b`}>{woven}</textPath>
+    </text>
+  </svg>
+
+  <span class="clip"></span>
+
+  <div class="badge">
+    <img src={image} alt={alt} loading="lazy" decoding="async" />
+  </div>
+
+  <span class="pin"></span>
+</div>
+
+<style>
+  .col {
+    position: relative;
+    width: calc(124 * var(--u, 1px));
+    height: calc((var(--h) + 190 + var(--x, 0)) * var(--u, 1px));
+  }
+
+  /* rail segment – every column draws its own, so wrapped rows get a rail too */
+  .col::before {
+    content: "";
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: 2px;
+    height: 3px;
+    background: linear-gradient(180deg, #8e8a82, #4c4a46);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+  }
+
+  .pin {
+    position: absolute;
+    left: 50%;
+    top: calc(-6 * var(--u, 1px));
+    z-index: 6;
+    width: calc(16 * var(--u, 1px));
+    height: calc(16 * var(--u, 1px));
+    margin-left: calc(-8 * var(--u, 1px));
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 35% 30%,
+      #f2f2f2,
+      #9a9a9a 45%,
+      #3c3c3c 80%
+    );
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  /* lanyard */
+  .lan {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: calc(var(--h) * var(--u, 1px));
+    overflow: visible;
+    filter: drop-shadow(2px 6px 4px rgba(0, 0, 0, 0.55));
+  }
+  .lan text {
+    font:
+      600 4.6px "JetBrains Mono",
+      ui-monospace,
+      Menlo,
+      Consolas,
+      monospace;
+    letter-spacing: 0.9px;
+    fill: rgba(255, 255, 255, 0.82);
+  }
+
+  /* metal clip */
+  .clip {
+    position: absolute;
+    left: 50%;
+    top: calc((var(--h) - 6) * var(--u, 1px));
+    z-index: 4;
+    width: calc(14 * var(--u, 1px));
+    height: calc(18 * var(--u, 1px));
+    transform: translateX(-50%);
+    border-radius: 3px;
+    background: linear-gradient(90deg, #6d6d6d, #e6e6e6 45%, #8a8a8a);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+  }
+  .clip::after {
+    content: "";
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 30%;
+    height: 35%;
+    border-radius: 2px;
+    background: #4b4b4b;
+  }
+
+  /* badge holder (clear plastic sleeve) */
+  .badge {
+    position: absolute;
+    left: 50%;
+    top: calc((var(--h) + 4) * var(--u, 1px));
+    z-index: 3;
+    width: calc(124 * var(--u, 1px));
+    aspect-ratio: 5 / 7;
+    padding: calc(4 * var(--u, 1px));
+    transform: translateX(-50%);
+    border-radius: calc(8 * var(--u, 1px));
+    background: linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.28),
+      rgba(255, 255, 255, 0.08)
+    );
+    box-shadow:
+      inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+      0 14px 22px -6px rgba(0, 0, 0, 0.75),
+      0 3px 6px rgba(0, 0, 0, 0.5);
+  }
+  .badge img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: calc(5 * var(--u, 1px));
+    background: #222;
+  }
+  /* slot hole */
+  .badge::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    z-index: 2;
+    width: 22%;
+    height: 3%;
+    transform: translateX(-50%);
+    border-radius: 9px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.8);
+  }
+  /* sheen */
+  .badge::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.22),
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0) 72%,
+      rgba(255, 255, 255, 0.08)
+    );
+  }
+</style>

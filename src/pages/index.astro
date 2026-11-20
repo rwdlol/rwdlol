@@ -1,0 +1,153 @@
+---
+import BadgeBoard from "@components/archive/BadgeBoard.astro";
+---
+
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rawand Khalid – Full-Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Rawand Khalid, full-stack web developer. I build, deploy, and maintain web apps, from frontend and backend to databases, cloud, and servers."
+    />
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>Rawand Khalid</h1>
+        <p>
+          Full-stack web developer. I build, deploy, and maintain web apps, from
+          frontend and backend to databases, cloud, and servers.
+        </p>
+        <p>
+          <a href="https://github.com/rwdlol">GitHub</a>
+          {" - "}
+          <a href="https://x.com/rwd_lol">X</a>
+        </p>
+      </section>
+      <section>
+        <h2>Awards</h2>
+        <h3>Skill 17 WorldSkills Germany</h3>
+        <p>
+          Silver medal at WorldSkills Germany 2025, which qualified me for the
+          Albert Einstein Cup 2026. There I represented Germany against 11
+          nations and placed 5th.
+        </p>
+      </section>
+      <section>
+        <h2>Skills</h2>
+        <ul>
+          <li>
+            <strong>Languages</strong> JavaScript, TypeScript, PHP,
+            Rust(learning)
+          </li>
+          <li>
+            <strong>Frontend</strong> React, React Native, Next.js, Astro,
+            Tailwind CSS, Framer Motion
+          </li>
+          <li>
+            <strong>Backend</strong> Hono, Express, Laravel
+          </li>
+          <li>
+            <strong>Databases</strong> PostgreSQL, MySQL, MariaDB, SQLite,
+            Prisma
+          </li>
+          <li>
+            <strong>Cloud</strong> Cloudflare, Vercel, Google Cloud,
+            DigitalOcean, Appwrite, Coolify
+          </li>
+          <li>
+            <strong>Server</strong> Ubuntu/Debian, Nginx, Apache, PM2, cPanel
+          </li>
+          <li>
+            <strong>CMS</strong> WordPress, Drupal, Blogger
+          </li>
+          <li>
+            <strong>Tools</strong> Git, Docker, Figma, Storybook, Postman, Vite,
+            Bun, pnpm, Biome
+          </li>
+          <li>
+            <strong>AI</strong> Claude Code, Cursor, Copilot, Codex, Vercel AI
+            SDK, OpenRouter, Hugging Face
+          </li>
+          <li>
+            <strong>Spoken</strong> Kurdish, Arabic, German, English
+          </li>
+        </ul>
+        <!-- <BadgeBoard /> -->
+      </section>
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-display: swap;
+    font-family: "Ubuntu";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/ubuntu-v21-latin-regular.woff2") format("woff2");
+  }
+
+  * {
+    font-weight: 400;
+  }
+
+  :root {
+    color-scheme: light dark;
+  }
+
+  body {
+    max-width: 768px;
+    margin: 0 auto;
+    padding: 10px;
+    line-height: 1.6;
+    font-family: "Ubuntu", sans-serif;
+    background: light-dark(#fff, #121212);
+    color: light-dark(#1a1a1a, #e6e6e6);
+
+    > main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+
+      h1,
+      h2,
+      h3,
+      a {
+        color: light-dark(#0b57d0, #8ab4f8);
+      }
+
+      p {
+        text-wrap: pretty;
+      }
+
+      ul {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 8px 16px;
+        margin: 16px 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          display: grid;
+          grid-column: 1 / -1;
+          grid-template-columns: subgrid;
+        }
+
+        strong {
+          color: light-dark(#555, #a0a0a0);
+        }
+      }
+    }
+  }
+</style>
